@@ -4,19 +4,19 @@ let Navbar = () =>{
     return (
         <nav className = {s.nav}> 
         <div>
-        <a>Profile</a>
+        <a href = '/Profile'>Profile</a>
         </div>
         <div>
-          <a>Messages</a>
+          <a  href = '/Dialogs'>Messages</a>
         </div>
         <div>
-          <a>News</a>
+          <a  href = '/News'>News</a>
         </div>
         <div>
-          <a>Music</a>
+          <a  href = '/Music'>Music</a>
         </div>
         <div>
-          <a>Setting</a>
+          <a href = '/Settings' >Setting</a>
         </div>
       </nav>
     )
