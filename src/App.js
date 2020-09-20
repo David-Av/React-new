@@ -10,9 +10,13 @@ const App = () => {
     <div className = "app_wrapper"> 
       <Header/>
       <Navbar/>
-      <Profile/>
+      <Profile/> 
       </div>
   );
 };
 
 export default App;
+
+/*
+gitk --all&
+*/

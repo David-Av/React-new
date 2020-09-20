@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./header.module.css";
 
-
 let Header = () => {
   return (
     <header className = {s.header}>
