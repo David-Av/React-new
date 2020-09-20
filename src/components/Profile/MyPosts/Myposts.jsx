@@ -11,13 +11,8 @@ const Myposts = () =>{
         <button>Add Post</button>
         <button>Remove Post</button>
     </div>
-    <Post/>
-    <Post/>
-    <Post/>
-    <Post/>
-    <Post/>
-    <Post/>
-    <Post/>
+    <Post message = "HI"/>
+    <Post message = "First Post"/>
     </div>
    )
 }
