@@ -2,3 +2,13 @@
     grid-area: n;
     background-color: green;
   }
+
+  .item a{
+    color: white;
+    text-decoration: none;
+}
+  .activeLink{
+    font-size: large;
+    text-decoration: none;
+  }
+  

@@ -1,15 +1,12 @@
 import React from 'react'
 import Myposts from './MyPosts/Myposts'
 import s from './profile.module.css'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
+
 const Profile = () =>{
     return (
         <div className = {s.content}>
-        <div>
-        <img className = {s.image} src="https://www.wpexplorer.com/wp-content/uploads/wordpress-image-optimization-guide.jpg"/>
-        </div>
-        <div>
-          ava+ description
-          </div>
+        <ProfileInfo/>
         <Myposts/>
       </div>
     )

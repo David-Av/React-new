@@ -1,3 +1,11 @@
-.wrapper{
-    background-color: greenyellow;
+.dialogs {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    
+}
+.dialog_item{
+    padding: 10px;
+}
+.messages{
+    padding: 10px;
 }
