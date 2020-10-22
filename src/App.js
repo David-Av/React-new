@@ -14,8 +14,10 @@ const App = () => {
       <Header/>
       <Navbar/>
       <div className = 'app_wrapper_content'>
-        <Route path = '/Profile'  component = {Profile}/>
-        <Route  path = '/Dialogs' component = {Dialogs}/>
+        {/* <Route path = '/Profile'  component = {Profile}/>
+        <Route  path = '/Dialogs' component = {Dialogs}/> */}
+        <Route path = '/Dialogs'  render = {()=> <Dialogs/>}/>
+        <Route  path = '/Profile' render = {()=><Profile/>}/>
         
       </div>
       </div>
