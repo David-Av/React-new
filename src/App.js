@@ -8,19 +8,24 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route, Router } from "react-router-dom";
 
 const App = (props) => {
-
+  debugger;
   return (
     <BrowserRouter>
-    <div className = "app_wrapper"> 
-      <Header/>
-      <Navbar/>
-      <div className = 'app_wrapper_content'>
-        <Route path = '/Dialogs'  render = {()=> <Dialogs dialogsData = {props.dialogsData} messagesData = {props.messagesData}/>}/>
-        <Route  path = '/Profile' render = {()=><Profile posts= {props.posts}/>}/>
-        
+      <div className="app_wrapper">
+        <Header />
+        <Navbar />
+        <div className="app_wrapper_content">
+          <Route
+            path="/Dialogs"
+            render={() => <Dialogs state={props.AppState.DialogsPage} />}
+          />
+          <Route
+            path="/Profile"
+            render={() => <Profile state={props.AppState.profilePage} />}
+          />
+        </div>
       </div>
-      </div>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 };
 
