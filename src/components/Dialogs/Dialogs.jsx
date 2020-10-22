@@ -1,15 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import DialogPerson from './DialogPerson/DialogPerson';
 import s from './Dialogs.module.css'
-
-const DialogPerson = (props) =>{
-return <div className={s.dialog}><NavLink to = {`/dialogs/${props.id}`}>{props.name}</NavLink></div>
-}
-const Message = (props) =>{
-    return (
-    <div className={s.message}>{props.message}</div> 
-    )
-}
+import Message from './Message/Message';
+// const DialogPerson = (props) =>{
+// return <div className={s.dialog}><NavLink to = {`/dialogs/${props.id}`}>{props.name}</NavLink></div>
+// }
+// const Message = (props) =>{
+//     return (
+//     <div className={s.message}>{props.message}</div> 
+//     )
+// }
 const Dialogs = () =>{
     let dialogsData = [
         {id: 1, name:"David"},
