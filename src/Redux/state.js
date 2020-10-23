@@ -26,11 +26,14 @@
         dialogMessage: ''
       },
     },
+    _callSubscriber () {
+
+    },
     getState(){
       return this._state
     },
-    _callSubscriber () {
-
+    subscribe  (observer){
+      this._callSubscriber = observer
     },
     addPost (){
       let newPost = {
@@ -59,8 +62,20 @@
       this._state.DialogsPage.dialogMessage = message
       this._callSubscriber(this._state)
     },
-     subscribe  (observer){
-      this._callSubscriber = observer
+    dispatch(action){
+      if(action.type === "ADD-POST"){
+        let newPost = {
+          id:5,
+          message:this._state.profilePage.newPostText,
+          likesCount:0
+        };
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
+      }else if(action.type === "UPADTE-NEW-POST-TEXT"){
+        this._state.profilePage.newPostText = action.newText
+        this._callSubscriber(this._state);
+      }
     }
   }
   let rerenderEntireTree  = () =>{

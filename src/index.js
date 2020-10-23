@@ -10,7 +10,7 @@ import store from "./Redux/state"
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} addPost={store.addPost.bind(store)} updateNewPostText = {store.updateNewPostText.bind(store)} dialogMessageText = {store.dialogMessageText.bind(store)} addMessage = {store.addMessage.bind(store)} />
+      <App state={state} dispatch = {store.dispatch.bind(store)} dialogMessageText = {store.dialogMessageText.bind(store)} addMessage = {store.addMessage.bind(store)} />
     </React.StrictMode>,
     document.getElementById("root")
   );
@@ -22,3 +22,5 @@ store.subscribe(rerenderEntireTree)
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+/* addPost={store.addPost.bind(store)} updateNewPostText = {store.updateNewPostText.bind(store)}*/

@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Router } from "react-router-dom";
 
 
 const App = (props) => {
+  console.log(props);
   return (
     <BrowserRouter>
       <div className="app_wrapper">
@@ -22,8 +23,7 @@ const App = (props) => {
           <Route
             path="/Profile"
             render={() => <Profile profilePage={props.state.profilePage}
-                addPost = {props.addPost}
-                updateNewPostText = {props.updateNewPostText}
+                dispatch = {props.dispatch}
             />}
           />
         </div>
