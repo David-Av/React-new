@@ -8,7 +8,11 @@ const Dialogs = (props) => {
     let newMessage = React.createRef();
     let addMessage = ()=>{
       let text = newMessage.current.value
-      alert(text)
+      props.addMessage()
+    }
+    let updateDialogText = ()=>{
+      let text = newMessage.current.value
+      props.dialogMessageText(text)
     }
   let dialogsDataM = props.state.dialogsData.map((person) => (
     <DialogPerson name={person.name} id={person.id} />
@@ -21,7 +25,7 @@ const Dialogs = (props) => {
       <div className={s.dialog_items}>{dialogsDataM}</div>
       <div className={s.messages}>{messagesDataM}</div>
       <div>
-        <textarea name="" ref = {newMessage} cols="10" rows="1"></textarea>
+        <input name="" ref = {newMessage} cols="10" rows="1" onChange = {updateDialogText} value = {props.state.dialogMessage}/>
         <button onClick = {addMessage}>Add Messae</button>
       </div>
     </div>
