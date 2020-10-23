@@ -5,7 +5,11 @@ import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-    debugger
+    let newMessage = React.createRef();
+    let addMessage = ()=>{
+      let text = newMessage.current.value
+      alert(text)
+    }
   let dialogsDataM = props.state.dialogsData.map((person) => (
     <DialogPerson name={person.name} id={person.id} />
   ));
@@ -16,6 +20,10 @@ const Dialogs = (props) => {
     <div className={s.dialogs}>
       <div className={s.dialog_items}>{dialogsDataM}</div>
       <div className={s.messages}>{messagesDataM}</div>
+      <div>
+        <textarea name="" ref = {newMessage} cols="10" rows="1"></textarea>
+        <button onClick = {addMessage}>Add Messae</button>
+      </div>
     </div>
   );
 };

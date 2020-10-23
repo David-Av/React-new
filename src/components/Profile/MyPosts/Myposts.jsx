@@ -8,20 +8,25 @@ const Myposts = (props) => {
   ));
   let newPostElement = React.createRef();
   let addPost = () => {
-    let text = newPostElement.current.value
-    alert(text)
+    props.addPost();
   };
+  let onPostChange = () =>{
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text)
+  }
   return (
     <div>
       My posts
       <div className={s.item}>
-        <textarea
-          name=""
-          ref={newPostElement}
-          id=""
-          cols="10"
-          rows="1"
-        ></textarea>
+        <input
+        onChange = {onPostChange}
+        value = {props.newPostText}
+        ref={newPostElement}
+        id=""
+        // autoFocus = {true}
+        cols="10"
+        rows="5"
+        />  
         <button onClick={addPost}>Add Post</button>
         <button>Remove Post</button>
       </div>
