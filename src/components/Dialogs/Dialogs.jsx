@@ -1,18 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { addMessageActionCreator, dialogMessageTextActionCreator } from "../../Redux/state";
 import DialogPerson from "./DialogPerson/DialogPerson";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
+
+
 const Dialogs = (props) => {
     let newMessage = React.createRef();
     let addMessage = ()=>{
-      let text = newMessage.current.value
-      props.addMessage()
+      props.dispatch(addMessageActionCreator())
     }
     let updateDialogText = ()=>{
       let text = newMessage.current.value
-      props.dialogMessageText(text)
+      let action = dialogMessageTextActionCreator(text)
+      props.dispatch(action)
+
     }
   let dialogsDataM = props.state.dialogsData.map((person) => (
     <DialogPerson name={person.name} id={person.id} />

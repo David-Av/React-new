@@ -7,7 +7,6 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route, Router } from "react-router-dom";
 
-
 const App = (props) => {
   console.log(props);
   return (
@@ -18,13 +17,21 @@ const App = (props) => {
         <div className="app_wrapper_content">
           <Route
             path="/Dialogs"
-            render={() => <Dialogs state={props.state.DialogsPage} dialogMessageText={props.dialogMessageText} addMessage = {props.addMessage} />}
+            render={() => (
+              <Dialogs
+                state={props.state.DialogsPage}
+                dispatch={props.dispatch}
+              />
+            )}
           />
           <Route
             path="/Profile"
-            render={() => <Profile profilePage={props.state.profilePage}
-                dispatch = {props.dispatch}
-            />}
+            render={() => (
+              <Profile
+                profilePage={props.state.profilePage}
+                dispatch={props.dispatch}
+              />
+            )}
           />
         </div>
       </div>
