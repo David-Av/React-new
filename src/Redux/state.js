@@ -1,3 +1,5 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = "UPADTE-NEW-POST-TEXT";
   let store = {
     _state:{
       profilePage: {
@@ -63,7 +65,7 @@
       this._callSubscriber(this._state)
     },
     dispatch(action){
-      if(action.type === "ADD-POST"){
+      if(action.type === ADD_POST){
         let newPost = {
           id:5,
           message:this._state.profilePage.newPostText,
@@ -72,15 +74,38 @@
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = '';
         this._callSubscriber(this._state);
-      }else if(action.type === "UPADTE-NEW-POST-TEXT"){
+      }else if(action.type === UPDATE_NEW_POST_TEXT){
         this._state.profilePage.newPostText = action.newText
         this._callSubscriber(this._state);
       }
     }
+  
   }
-  let rerenderEntireTree  = () =>{
+export  const addPostActionCreator = ()=>{
+  
+    return {
+      type: ADD_POST
+    }
+  }
+ export const onPostChangeActionCreator = (text)=>{
+    return { type: UPDATE_NEW_POST_TEXT, newText: text }
+  }
+ 
+export default store;
+window.store = store;
 
-  }
+
+
+
+
+
+
+
+
+// let rerenderEntireTree  = () =>{
+
+ // }
+  /*
 let state = {
   profilePage: {
     posts: [
@@ -140,5 +165,4 @@ export const subscribe = (observer)=>{
   rerenderEntireTree = observer
 }
 // export default state;
-export default store;
-window.store = store;
+*/
