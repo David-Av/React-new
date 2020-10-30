@@ -9,6 +9,7 @@ import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
+
     let addMessage = ()=>{
       props.addMessage()
     }
@@ -18,10 +19,10 @@ const Dialogs = (props) => {
 
     }
   let dialogsDataM = props.state.dialogsData.map((person) => (
-    <DialogPerson name={person.name} id={person.id} />
+    <DialogPerson name={person.name} id={person.id} key = {person.id}/>
   ));
   let messagesDataM = props.state.messagesData.map((m) => (
-    <Message message={m.message} />
+    <Message message={m.message} key = {m.id}/>
   ));
   return (
     <div className={s.dialogs}>
