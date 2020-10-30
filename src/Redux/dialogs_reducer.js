@@ -19,7 +19,7 @@ let initialState = {
         { id: 4, name: "Sasha" },
         { id: 5, name: "Valera" },
       ],
-      dialogMessage: ""
+      dialogMessage: "gri"
 }
 const dialogsReducer = (state = initialState, action) => {
     switch(action.type){

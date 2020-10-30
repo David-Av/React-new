@@ -11,7 +11,6 @@ import Message from "./Message/Message";
 
 
 // const DialogsContainer = (props) => {
-//   console.log(props);
 //     let state = props.store.getState().DialogsPage;
 //     let addMessage = ()=>{
 //       props.store.dispatch(addMessageActionCreator())

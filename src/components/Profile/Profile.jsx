@@ -5,7 +5,7 @@ import s from "./profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-  console.log(props);
+  
   return (
     <div className={s.content}>
       <ProfileInfo />
