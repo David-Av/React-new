@@ -9,12 +9,14 @@ import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
+    let newMessage = React.createRef();
     let addMessage = ()=>{
-      props.addMessage()
+      props.dispatch(addMessageActionCreator())
     }
-    let updateDialogText = (e)=>{
-      let text = e.target.value
-      props.updateDialogText(text)
+    let updateDialogText = ()=>{
+      let text = newMessage.current.value
+      let action = dialogMessageTextActionCreator(text)
+      props.dispatch(action)
 
     }
   let dialogsDataM = props.state.dialogsData.map((person) => (
@@ -28,7 +30,7 @@ const Dialogs = (props) => {
       <div className={s.dialog_items}>{dialogsDataM}</div>
       <div className={s.messages}>{messagesDataM}</div>
       <div>
-        <input name=""  cols="10" rows="1" onChange = {updateDialogText} value = {props.state.dialogMessage}/>
+        <input name="" ref = {newMessage} cols="10" rows="1" onChange = {updateDialogText} value = {props.state.dialogMessage}/>
         <button onClick = {addMessage}>Add Messae</button>
       </div>
     </div>

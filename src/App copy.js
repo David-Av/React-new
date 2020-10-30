@@ -6,10 +6,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route, Router } from "react-router-dom";
-import DialogsContainer from "./components/Dialogs/Dialogs_container";
 
 const App = (props) => {
-  
+  debugger
   return (
     <BrowserRouter>
       <div className="app_wrapper">
@@ -19,18 +18,18 @@ const App = (props) => {
           <Route
             path="/Dialogs"
             render={() => (
-              <DialogsContainer store = {props.store}/>
-                // state={props.state.DialogsPage}
-                // dispatch={props.dispatch}
-                
-             
+              <Dialogs
+                state={props.state.DialogsPage}
+                dispatch={props.dispatch}
+              />
             )}
           />
           <Route
             path="/Profile"
             render={() => (
               <Profile
-              store={props.store}
+                profilePage={props.state.profilePage}
+                dispatch={props.dispatch}
               />
             )}
           />

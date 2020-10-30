@@ -4,14 +4,13 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import store from "./Redux/redux_store";
-// import store from "./Redux/store"
-
+console.log(store);
 
 let rerenderEntireTree = (state) => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} dispatch = {store.dispatch.bind(store)}  />
+      <App state={state} dispatch = {store.dispatch.bind(store)} store={store}  />
     </React.StrictMode>,
     document.getElementById("root")
   );
@@ -27,4 +26,4 @@ store.subscribe(()=>{
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-/* addPost={store.addPost.bind(store)} updateNewPostText = {store.updateNewPostText.bind(store)}*/
+/* addPost={store.addPost.bind(store)} updateNewPostText = {store.updateNewPostText.bind(store)}*/ 
