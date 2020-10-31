@@ -3,3 +3,13 @@
     height: 150px;
     border-radius: 50%;
 }
+
+.selectedPage{
+    font-weight: bolder;
+}
+.page{
+    color: red;
+    margin-right: 8px;
+    border:solid blue;
+    cursor: pointer;
+}

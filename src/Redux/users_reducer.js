@@ -1,34 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
+const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT'
 let initialState = {
-     users : []
-    //  [
-    //     {
-    //       id: 1,
-    //       followed: true,
-    //       status: "i'm a...",
-    //       photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
-    //       fullName: "Dmitry",
-    //       location: { city: "Minsk", country: "Belarus" },
-    //     },
-    //     {
-    //       id: 2,
-    //       followed: false,
-    //       status: "i'm a...",
-    //       photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
-    //       fullName: "Oleg",
-    //       location: { city: "Yerevan", country: "Armenia" },
-    //     },
-    //     {
-    //       id: 3,
-    //       followed: true,
-    //       status: "i'm a...",
-    //       photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
-    //       fullName: "Vartiter",
-    //       location: { city: "Kirovakan", country: "Armenia" },
-    //     },
-    //   ]
+     users : [],
+     pageSize:100,
+     totalUsersCount:21,
+     currentPage:2
+   
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -54,13 +34,20 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
             case SET_USERS:{
-                return {...state,users:[...state.users,...action.users] }
+                return {...state,users:action.users}
+            }
+            case SET_CURRENT_PAGE:{
+                return {...state,currentPage:action.currentPage }
+            }
+            case SET_USERS_TOTAL_COUNT:{
+                return {...state,totalUsersCount:action.totalUsersCount }
             }
         default:
       return state;
   }
 };
-
+export const setUsersTotalCountAC = (totalUsersCount) =>({type:SET_USERS_TOTAL_COUNT,totalUsersCount});
+export const setCurrentPageAC = (currentPage) => ({type:SET_CURRENT_PAGE,currentPage});
 export const followAC = (userId) => ({type:FOLLOW,userId});
 export const unFollowAC = (userId) => ({type:UNFOLLOW,userId})
 export const setUsersAC = (users) => ({type:SET_USERS, users})
