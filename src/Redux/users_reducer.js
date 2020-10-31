@@ -2,39 +2,36 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 let initialState = {
-    users:[
-        
-      ]
-//   users: [
-//     {
-//       id: 1,
-//       followed: true,
-//       status: "i'm a...",
-//       photo: "",
-//       fullName: "Dmitry",
-//       location: { city: "Minsk", country: "Belarus" },
-//     },
-//     {
-//       id: 2,
-//       followed: false,
-//       status: "i'm a...",
-//       photo: "",
-//       fullName: "Oleg",
-//       location: { city: "Yerevan", country: "Armenia" },
-//     },
-//     {
-//       id: 3,
-//       followed: true,
-//       status: "i'm a...",
-//       photo: "",
-//       fullName: "Vartiter",
-//       location: { city: "Kirovakan", country: "Armenia" },
-//     },
-//   ],
+     users : []
+    //  [
+    //     {
+    //       id: 1,
+    //       followed: true,
+    //       status: "i'm a...",
+    //       photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
+    //       fullName: "Dmitry",
+    //       location: { city: "Minsk", country: "Belarus" },
+    //     },
+    //     {
+    //       id: 2,
+    //       followed: false,
+    //       status: "i'm a...",
+    //       photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
+    //       fullName: "Oleg",
+    //       location: { city: "Yerevan", country: "Armenia" },
+    //     },
+    //     {
+    //       id: 3,
+    //       followed: true,
+    //       status: "i'm a...",
+    //       photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
+    //       fullName: "Vartiter",
+    //       location: { city: "Kirovakan", country: "Armenia" },
+    //     },
+    //   ]
 };
 
 const usersReducer = (state = initialState, action) => {
-    debugger;
   switch (action.type) {
       case FOLLOW:
         return {
