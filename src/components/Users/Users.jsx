@@ -3,24 +3,19 @@ import * as axios from "axios";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 
-class Users extends React.Component{
-  constructor(props){
-    super(props);
-    
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((response) => {
-          return this.props.setUsers(response.data.items), console.log(response);
-        });
-    
+class Users extends React.Component {
+  
+  componentDidMount() {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        return this.props.setUsers(response.data.items), console.log(response);
+      });
   }
-   getUsers = () => {
-    
-  };
-  render(){
+
+  render() {
     return (
       <div>
-        <button onClick={this.getUsers}>Get Users</button>
         {this.props.users.map((u) => {
           return (
             <div key={u.id}>
@@ -33,9 +28,13 @@ class Users extends React.Component{
                 </div>
                 <div>
                   {u.followed ? (
-                    <button onClick={() => this.props.unFollow(u.id)}>Unfollow</button>
+                    <button onClick={() => this.props.unFollow(u.id)}>
+                      Unfollow
+                    </button>
                   ) : (
-                    <button onClick={() => this.props.follow(u.id)}>follow</button>
+                    <button onClick={() => this.props.follow(u.id)}>
+                      follow
+                    </button>
                   )}
                 </div>
               </span>
