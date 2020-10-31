@@ -20,6 +20,9 @@ let Navbar = () =>{
         <div className = {s.item}> 
           <NavLink activeClassName = {s.activeLink} to = '/Settings' >Setting</NavLink>
         </div>
+        <div className = {s.item}> 
+          <NavLink activeClassName = {s.activeLink} to = '/users' >Users</NavLink>
+        </div>
       </nav>
     )
 }

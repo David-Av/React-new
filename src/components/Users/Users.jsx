@@ -3,45 +3,18 @@ import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 let Users = (props) => {
-  let users = [
-    {
-      id: 1,
-      followed: true,
-      status: "i'm a...",
-      photo:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
-      fullName: "Dmitry",
-      location: { city: "Minsk", country: "Belarus" },
-    },
-    {
-      id: 2,
-      followed: false,
-      status: "i'm a...",
-      photo:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
-      fullName: "Oleg",
-      location: { city: "Yerevan", country: "Armenia" },
-    },
-    {
-      id: 3,
-      followed: true,
-      status: "i'm a...",
-      photo:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Dmitry_Nagiev_2017_4.jpg/274px-Dmitry_Nagiev_2017_4.jpg",
-      fullName: "Vartiter",
-      location: { city: "Kirovakan", country: "Armenia" },
-    },
-  ];
-  if (props.users.length == 0) {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-        return props.setUsers(response.data.items), console.log(response);
-      });
-    // props.setUsers(users)
-  }
+  let getUsers = () => {
+    if (props.users.length == 0) {
+      axios
+        .get("https://social-network.samuraijs.com/api/1.0/users")
+        .then((response) => {
+          return props.setUsers(response.data.items), console.log(response);
+        });
+    }
+  };
   return (
     <div>
+      <button onClick={getUsers}>Get Users</button>
       {props.users.map((u) => {
         return (
           <div key={u.id}>
