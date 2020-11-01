@@ -4,4 +4,49 @@ componentner@ linum en presentacion presentacioni imast@ ena vor propserov danni
 
 ///////////////////////////////////////////////////////
 das57
-sarqum enq preloader avelacrecinq preloader@ state-um avelacrecinq isFetching hatkutyun@ ete true a cuyca talis preloader@ ete false a chi cuyc talis u eti sax grel enq ajax zaprosneri logikayum componentDidMount-um mekel ej@ poxelu functiayum
+sarqum enq preloader avelacrecinq preloader@ state-um avelacrecinq isFetching hatkutyun@ ete true a cuyca talis preloader@ ete false a chi cuyc talis u eti sax grel enq ajax zaprosneri logikayum componentDidMount-um mekel ej@ poxelu functiayum hanecinq arancin component sarqecinq preloader@
+////////////////////////////////////////////////////////
+das58
+poxum enq mapDispatch to props@ refactoring 
+let mapDispatchToProps = (dispatch) => {
+  return {
+    follow: (userId) => {
+      dispatch(followAC(userId));
+    },
+    unFollow: (userId) => {
+      dispatch(unFollowAC(userId));
+    },
+    setUsers: (users) => {
+      dispatch(setUsersAC(users));
+    },
+    setCurrentPage: (pageNumber) => {
+      dispatch(setCurrentPageAC(pageNumber));
+    },
+    setTotalUsersCount: (totalCount) => {
+      dispatch(setUsersTotalCountAC(totalCount));
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(setIsFetchingAC(isFetching));
+    },
+  };
+};
+let mapDispatchToProps1 =
+   {
+    follow: followAC,
+    unFollow: unFollowAC,
+    setUsers: setUsersAC,
+    setCurrentPage: setCurrentPageAC,
+    setTotalUsersCount:setUsersTotalCountAC,
+    toggleIsFetching: setIsFetchingAC
+    }
+    connecti mej arajiN@ tex@ poxancecinq prost@ es object@ u chem jog@m vonc ashxatuma heto vabshe ay senc 
+    {
+  followAC,
+  unFollowAC,
+  setUsersAC,
+  setCurrentPageAC,
+  setUsersTotalCountAC,
+  setIsFetchingAC,
+}
+vobshem knayes anpayman noric
+aysinqn karum enq senc poxancenq isk es reacr-redux@ es connecti mijocov vekaluma sarquma functia mej@ dnum et argument@ vor@ menq UI-um poxancecinq dispatch a anum u ashxatuma avtomat maladec

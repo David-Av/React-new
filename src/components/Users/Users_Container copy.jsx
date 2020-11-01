@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-  follow,
-  setCurrentPage,
-  setIsFetching,
-  setUsers,
-  setTotalUsersCount,
-  unFollow,
+  followAC,
+  setCurrentPageAC,
+  setIsFetchingAC,
+  setUsersAC,
+  setUsersTotalCountAC,
+  unFollowAC,
 } from "../../Redux/users_reducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -15,7 +15,7 @@ import Preloader from "../Preloader/Preloader";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.setIsFetching(true);
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
@@ -24,15 +24,14 @@ class UsersContainer extends React.Component {
         return (
           this.props.setUsers(response.data.items),
           console.log(response),
-          this.props.setIsFetching(false),
-          this.props.setTotalUsersCount(response.data.totalCount),
-          console.log(this.props)
+          this.props.toggleIsFetching(false),
+          this.props.setTotalUsersCount(response.data.totalCount)
         );
       });
   }
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
-    this.props.setIsFetching(true);
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
@@ -41,7 +40,7 @@ class UsersContainer extends React.Component {
         return (
           this.props.setUsers(response.data.items),
           console.log(response),
-          this.props.setIsFetching(false)
+          this.props.toggleIsFetching(false)
         );
       });
   };
@@ -106,10 +105,10 @@ let mapStateToProps = (state) => {
   
 
 export default connect(mapStateToProps, {
-    follow,
-    unFollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching
+    follow: followAC,
+    unFollow: unFollowAC,
+    setUsers: setUsersAC,
+    setCurrentPage: setCurrentPageAC,
+    setTotalUsersCount:setUsersTotalCountAC,
+    toggleIsFetching: setIsFetchingAC
     })(UsersContainer);
