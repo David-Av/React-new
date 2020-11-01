@@ -3,7 +3,6 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 
 let Users = (props) => {
-    debugger
     let pagesCount = Math.ceil(
         props.totalUsersCount / props.pageSize
       );

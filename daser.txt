@@ -1,3 +1,7 @@
 //////////////////////////////////////////////////
 das56
 componentner@ linum en presentacion presentacioni imast@ ena vor propserov danniner stana return ani mez jsx et danninerov linum en classovi dranq classner en voric stexcvum en objectner u classovinern el ajax zaprosner u tenc baner en anum isk containerniner@ shpvum en stori het presentacion@ ptat@m enq classovi-i mej classovi-in container componenti mej u sax texapoxecinq Users_Contaoner-i mej
+
+///////////////////////////////////////////////////////
+das57
+sarqum enq preloader avelacrecinq preloader@ state-um avelacrecinq isFetching hatkutyun@ ete true a cuyca talis preloader@ ete false a chi cuyc talis u eti sax grel enq ajax zaprosneri logikayum componentDidMount-um mekel ej@ poxelu functiayum
