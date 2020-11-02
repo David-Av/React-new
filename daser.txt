@@ -1,6 +1,9 @@
+*******************************************************************
+nayi noric Provideri masin u contexti masin u reducerner@ karevor u dispatch@
+*******************************************************************
 //////////////////////////////////////////////////
 das56
-componentner@ linum en presentacion presentacioni imast@ ena vor propserov danniner stana return ani mez jsx et danninerov linum en classovi dranq classner en voric stexcvum en objectner u classovinern el ajax zaprosner u tenc baner en anum isk containerniner@ shpvum en stori het presentacion@ ptat@m enq classovi-i mej classovi-in container componenti mej u sax texapoxecinq Users_Contaoner-i mej
+componentner@ linum en presentacion presentacioni imast@ ena vor propserov danniner stana return ani mez jsx et danninerov linum en classovi dranq classner en voric stexcvum en objectner u classovinern el ajax zaprosner u tenc baner en anum isk containerniner@ shpvum en stori het presentacion@ ptat@m enq classovi-i mej classovi-in container componenti mej u sax texapoxecinq Users_Contaoner-i mej aysinqn connecti component@ ashxatuma storei het class@ ashxatuma ajax zaprosi hamar presentacion-nn el cuyca talis sax
 
 ///////////////////////////////////////////////////////
 das57
@@ -50,3 +53,51 @@ let mapDispatchToProps1 =
 }
 vobshem knayes anpayman noric
 aysinqn karum enq senc poxancenq isk es reacr-redux@ es connecti mijocov vekaluma sarquma functia mej@ dnum et argument@ vor@ menq UI-um poxancecinq dispatch a anum u ashxatuma avtomat maladec
+////////////////////////////////////////////////////////////////////////das59
+profile@ mej cuyc enq talu konkret mardu profil@ erb vor usersi vra sxmenq et mardu vra qcelu u profile/{u stex et useri id}
+eti vonc haskaca tarber json filerica galu nuyn users json file@ chi 
+vobshem sarqecinq profile@ hamar component connectov dranq knayes prost@ stex urish xndir ka profile@ mej img src zaprosica galis bayc render@ zaprosic shuta ashxatum aysinqn inq@ render a anum bayc hl@ zaprosi danniner@ chi ekel dra hamar image src chi karum karda dra hamar nkarvoc component-um stex profileInfo-um proverka enq grum ay senca linum
+const ProfileInfo = (props) => {
+  if(!props.profile){
+    return <Preloader/>
+  }
+  return (
+    <div>
+      <img
+        className={s.image}
+        src="https://www.wpexplorer.com/wp-content/uploads/wordpress-image-optimization-guide.jpg"
+      />
+      <div></div>
+      <div>
+          <img src={props.profile.photos.small} alt=""/>
+        ava+ description</div>
+    </div>
+  );
+};
+aysinqn dursa galis voncvor 2 angam nkarvi component@ 2rd angamic sax kberi if-i mej chi mtni el
+////////////////////////////////////////////////////////////////////////das60
+withRouter props.match.params
+withRouter@ bardzr kargi component a dra masin heto 
+hima menq erv bor users-um useri vra sxmum neq brauseri link@ poxvuma orinak darnuma profile/54 ay es 54@ petqa vercnenq u ogtagorcenq dra hamar ka hatuk functia withRouter onnecti component@ ashxatuma storei het class@ ashxatuma ajax zaprosi hamar presentacion-nn el cuyca talis sax mihatel component enq sarqum vor urli het ashxati aysinqn konkret stex es depqum profileContainer classovi component@ mihatel urish withRouter-i mej enq patatum esa tesq@
+class ProfileContiner extends React.Component {
+  componentDidMount() {
+    axios
+    .get(
+      `https://social-network.samuraijs.com/api/1.0/profile/9`
+    )
+    .then((response) => {
+     this.props.setUserProfile(response.data)
+    });
+      console.log(this.props);
+  }
+  render() {
+    return <Profile {...this.props} profile = {this.props.profile}/>;
+  }
+}
+let mapStateToProps = (state) =>({
+    profile:state.profilePage.profile
+})
+let WithUrlDataContainerComponent = withRouter(ProfileContiner) STEX USHADIR
+export default connect(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent);
+himi ProfileContiner-um props@ avelacav match objectov location objectov u history objectov u staticContextov hima menq ashxatelu enq match-i het matchi mej ka params key@ eti henc profile/{ay esi params a}
+dra hamar app-um enq grum params@ route-um ay senc Route path="/Profile/:userId" render={() => <ProfileContiner />} es : sranic heto inch ka gnuma params-i mej : sranic heto inch anun grenq params objecti mej tenc key a haytvelu et anunov

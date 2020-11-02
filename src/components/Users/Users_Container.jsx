@@ -23,10 +23,9 @@ class UsersContainer extends React.Component {
       .then((response) => {
         return (
           this.props.setUsers(response.data.items),
-          console.log(response),
           this.props.setIsFetching(false),
-          this.props.setTotalUsersCount(response.data.totalCount),
-          console.log(this.props)
+          this.props.setTotalUsersCount(response.data.totalCount)
+        
         );
       });
   }
@@ -103,13 +102,12 @@ let mapStateToProps = (state) => {
 //     setTotalUsersCount:setUsersTotalCountAC,
 //     toggleIsFetching: setIsFetchingAC
 //     }
-  
 
 export default connect(mapStateToProps, {
-    follow,
-    unFollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching
-    })(UsersContainer);
+  follow,
+  unFollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  setIsFetching,
+})(UsersContainer);
