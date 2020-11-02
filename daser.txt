@@ -110,3 +110,38 @@ let {id,login,email} = response.data.data es grelu dzev@ nayi anpayman destruktu
 ////////////////////////////////////////////////////////////////////////
 das62
 follow unFollow baci get zaprosic ka nayev post u delete u put
+.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{withCredentials:true})
+posti mej {withCredentials:true} esi poxancum enq vorpes 3rd parametr
+isk delete@ 2rd parametr hamarya sax zaprosner@ baci get-ic key en uzum
+gnum enq sra sayt@ account setting goyutyun uni headers vor@ amen zaprosi het galisa vorpes parametr eli zaprosi mej petqa poxancenq karas network mej urli vra sxmes nayes ete hankarc sxmeluc heto chi poxvum gna nayi du erb vor araji angam zapros es anum userneri cucak@ et depqum ,{withCredentials:true esi vorpes parametr poxancaca te che 
+verjnakan sra tesq@ keyov exav senc
+{u.followed ? (
+                <button onClick={() =>{
+                  
+                  axios
+                  .delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials:true,headers:{
+                    "API-KEY" : "560961f6-c212-4142-b02d-d99d0a8308d3"
+                  }})
+                  .then(response=>{
+                    if(response.data.resultCode === 0){
+                      props.unFollow(u.id)
+                    }
+                  })
+                   }}>
+
+                  Unfollow
+                </button>
+              ) : (
+                <button onClick={() => {
+                  axios
+                    .post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{withCredentials:true,headers:{
+                      "API-KEY" : "560961f6-c212-4142-b02d-d99d0a8308d3"
+                    }})
+                    .then(response=>{
+                      if(response.data.resultCode === 0){
+                        props.follow(u.id)
+                      }
+                    })
+                  }}>
+                  follow
+                </button>
