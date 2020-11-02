@@ -1,5 +1,7 @@
 *******************************************************************
-nayi noric Provideri masin u contexti masin u reducerner@ karevor u dispatch@
+nayi noric Provideri masin u contexti masin u reducerner@ karevor u dispatch@ 
+das64(SHAT USHADIR NAYEL MASIVI METODNEROV ESI ESIMINCHER AREC some metod@ ushadir )
+
 *******************************************************************
 //////////////////////////////////////////////////
 das56
@@ -168,3 +170,8 @@ export const usersApi = {
            ).then(response=>response.data)
      }
 }
+////////////////////////////////////////////////////////////////////////
+SHAT USHADIR NAYEL MASIVI METODNEROV ESI ESIMINCHER AREC
+das64 
+button disabled follow/unFollow
+erb vor knopkin sxmum es zaprosa uxarkum cankalia et knopken disable anel vor user@ an@ndhat chsxmi u liq@ zaporner chgna sarqum enq sax funcia ban reducernerum u senc <button disabled = {props.followingInProgres} asuma ete es znacheniyan true a uremn disable a ashxatum
