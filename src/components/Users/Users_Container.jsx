@@ -39,7 +39,7 @@ class UsersContainer extends React.Component {
       .then((response) => {
         return (
           this.props.setUsers(response.data.items),
-          console.log(response),
+
           this.props.setIsFetching(false)
         );
       });

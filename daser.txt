@@ -101,3 +101,12 @@ let WithUrlDataContainerComponent = withRouter(ProfileContiner) STEX USHADIR
 export default connect(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent);
 himi ProfileContiner-um props@ avelacav match objectov location objectov u history objectov u staticContextov hima menq ashxatelu enq match-i het matchi mej ka params key@ eti henc profile/{ay esi params a}
 dra hamar app-um enq grum params@ route-um ay senc Route path="/Profile/:userId" render={() => <ProfileContiner />} es : sranic heto inch ka gnuma params-i mej : sranic heto inch anun grenq params objecti mej tenc key a haytvelu et anunov
+////////////////////////////////////////////////////////////////
+das61
+login
+menq login exav vaxt erb vor serverin request enq uxarkum sabshenianeri dra mej mer id-n nshvac chi urish dzeva linum amen sayt@ uni cookie skseluc eti datarka cookie-n kpcnum amen zaprosin ete menq login lineluc paroln u name@ chisht enq grum cookie-i mej grvuma mer informacian kodavorvac cookie-n uni lifetime aysinqn michev erba inq@ mnalu vor saytum sxmum es remember me eti cookie-i lifetime-i heta kapvac vor@ heto ogtagorcvuma orinak message-er@ request aneluc ka 2hat cookie mek@ localhosti hamar mek@ henc API serveri mer depqum erevi himi ashxatelu enq header-het hl@ vor senc sarqum enq auth-reducer 
+`https://social-network.samuraijs.com/api/1.0/auth/me` senc request enq uxarkum u erkord parametr geti mej grum enq {withCredentials:true} object petqa sra saytum reg exac linenq et vaxt cookin im brauseri meji kta mez es request@ normal {withCredentials:true} esel grum enq vorovhetev et cros anvtangutyun@ vabshe chi toxum 2 tex zapros uxarkenq bayc senc grelov karanq stex ham mer localhosti zaprosna hamel es sayti
+let {id,login,email} = response.data.data es grelu dzev@ nayi anpayman destrukturizacia
+////////////////////////////////////////////////////////////////////////
+das62
+follow unFollow baci get zaprosic ka nayev post u delete u put
