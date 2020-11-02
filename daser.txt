@@ -145,3 +145,26 @@ verjnakan sra tesq@ keyov exav senc
                   }}>
                   follow
                 </button>
+///////////////////////////////////////////////////////////////////
+das63 DAL
+data access layer
+mer Ui@ petq chi vor serverin zapros ani hima nenc kanenq vor DAL-um lini dranq logikan parametrer@ src-um sarqecinq API papken mej@ api.js 
+u logikan kamac kamac qcum enq @tex get@ menak taranq @ndex u container component-um et functia vor kanchecinq poxancecinq en argumentner@ vor@ vor petq er 2 hat vorovhetev props@ container componenti meja u tetevacnum enq response@ et api.js mihat then enq anum vor@ stanuma response eti veracuma menak data-in sarqecinq axios-i instance sax mej@ grecinq informacian avtomat parametrer@ inq@ dnuma ay senc url-n key@ en mi object@
+const instance = axios.create({
+    withCredentials:true,
+    baseURL: `https://social-network.samuraijs.com/api/1.0/`,
+    headers:{
+        "API-KEY" : "560961f6-c212-4142-b02d-d99d0a8308d3"
+      }
+})
+
+u esi hl@ vor chgidem senc kmna te che upakovka enq anum objecti mej
+export const usersApi = {
+     getUsers(currentPage ,pageSize){
+
+        return instance
+           .get(
+             `users?page=${currentPage}&count=${pageSize}`,{withCredentials:true}
+           ).then(response=>response.data)
+     }
+}
