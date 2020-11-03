@@ -1,6 +1,6 @@
 
 import * as axios from "axios"
-const baseUrl = `https://social-network.samuraijs.com/api/1.0/`;
+// const baseUrl = `https://social-network.samuraijs.com/api/1.0/`;
 
 const instance = axios.create({
     withCredentials:true,
@@ -17,7 +17,16 @@ export const usersApi = {
            .get(
              `users?page=${currentPage}&count=${pageSize}`,{withCredentials:true}
            ).then(response=>response.data)
-     }
+     },
+     follow(userId){
+      return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+           },
+     unFollow(userId){
+      
+     return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+         
+
+     },
 }
 
 

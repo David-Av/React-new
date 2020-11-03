@@ -1,15 +1,19 @@
+import { usersApi } from "../API/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 let initialState = {
      users : [],
      pageSize:100,
      totalUsersCount:21,
      currentPage:1,
-     isFetching:false
+     isFetching:false,
+     followingInProgres:[]
    
 };
 
@@ -47,14 +51,43 @@ const usersReducer = (state = initialState, action) => {
             case TOGGLE_IS_FETCHING:{
                 return {...state,isFetching:action.isFetching }
             }
+            case TOGGLE_IS_FOLLOWING_PROGRESS:{
+                return {...state,followingInProgres:action.followingInProgres
+                ?[...state.followingInProgres,action.userId]
+                :state.followingInProgres.filter(id=>id!=action.userId)
+                
+                }
+            }
         default:
       return state;
   }
 };
-export const setIsFetchingAC = (isFetching) => ({type:TOGGLE_IS_FETCHING,isFetching});
-export const setUsersTotalCountAC = (totalUsersCount) =>({type:SET_USERS_TOTAL_COUNT,totalUsersCount});
-export const setCurrentPageAC = (currentPage) => ({type:SET_CURRENT_PAGE,currentPage});
-export const followAC = (userId) => ({type:FOLLOW,userId});
-export const unFollowAC = (userId) => ({type:UNFOLLOW,userId})
-export const setUsersAC = (users) => ({type:SET_USERS, users})
+export const toggleFollowingProgress = (followingInProgres,userId)=>({
+    type:TOGGLE_IS_FOLLOWING_PROGRESS,followingInProgres,userId
+})
+export const setIsFetching = (isFetching) => ({type:TOGGLE_IS_FETCHING,isFetching});
+export const setTotalUsersCount = (totalUsersCount) =>({type:SET_USERS_TOTAL_COUNT,totalUsersCount});
+export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE,currentPage});
+export const follow = (userId) => ({type:FOLLOW,userId});
+export const unFollow = (userId) => ({type:UNFOLLOW,userId})
+export const setUsers = (users) => ({type:SET_USERS, users})
+/*
+export const getUsersThunkCreator = (currentPage,pageSize)=>{
+    
+    return (dispatch)=>{
+    dispatch(setIsFetching(true));
+
+    usersApi.getUsers(currentPage, pageSize)
+      .then((response) => {
+        return (
+          dispatch(setUsers(response.items)),
+          dispatch(setIsFetching(false)),
+          dispatch(setTotalUsersCount(response.totalCount))
+        
+        );
+      });
+    }
+}
+*/
+
 export default usersReducer;

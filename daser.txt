@@ -175,3 +175,84 @@ SHAT USHADIR NAYEL MASIVI METODNEROV ESI ESIMINCHER AREC
 das64 
 button disabled follow/unFollow
 erb vor knopkin sxmum es zaprosa uxarkum cankalia et knopken disable anel vor user@ an@ndhat chsxmi u liq@ zaporner chgna sarqum enq sax funcia ban reducernerum u senc <button disabled = {props.followingInProgres} asuma ete es znacheniyan true a uremn disable a ashxatum
+////////////////////////////////////////////////////////////////////////
+das65 
+redux-thunk ira asac sankiner@ TEORIA
+hima menq nenc en sarqel vor serveric galisa dal-in dalic UI UI-ic biznes esi shat vat chi bayc meka eli UI-@ shat gorca anum senc anum en bayc meka lav chi  aveli chisht klni vor biznes@ shpvi dal-i het dalnel serveri u amenaverjum gna sx UI stex mihat xndir ka redux@ connect@ petqa miangamic mez het tan stor@ bayc serveri zapros@ asinxron a dra hamar reduceri mej petq chi zapros anenq u @tex mez ognuma thunk@ menq dispatch einq uxarkum object bayc thunk-ov karanq thunk@ uxarkenq dispatch u ira mej grac lini actionCreatori-i logikan bayc stor@ chi karum funcia @nduni inq@ karuma menak object @nduni dispatch-i hamar dra hamar store-i u reducer aranqum mihatel sloy karanq sarqenq 
+////////////////////////////////////////////////////////////////////////
+das66 thunk practika
+thunk enq sarqum reducer-um 
+export const getUsersThunkCreator = (currentPage,pageSize)=>{
+    
+    return (dispatch)=>{
+    dispatch(setIsFetching(true));
+
+    usersApi.getUsers(currentPage, pageSize)
+      .then((response) => {
+        return (
+          dispatch(setUsers(response.items)),
+          dispatch(setIsFetching(false)),
+          dispatch(setTotalUsersCount(response.totalCount))
+        
+        );
+      });
+    }
+}
+stanuma es tesq@ mihat mej@ galisa danniner@ zamikania a linum u sksvuma dranc heto urish functia-ov ashxatel erb vor poxancum enq asuma es chem kara functia dispatch anem dra hamar redux_store-um store@ sarqeluc poxancum enq 2rd argument let store = createStore(reducers,applyMiddleware()); u npm install petqa anenq redux-thunk@ import enq anum import  thunkMiddleware from "redux-thunk"; himi containeri mej grel enq senc  componentDidMount() {
+    this.props.getUsers(this.props.currentPage,this.props.pageSize)
+    sax es logikan 
+    {u.followed ? (  
+                <button disabled = {props.followingInProgres.some(id=>id==u.id)} onClick={() =>{
+                  props.toggleFollowingProgress(true,u.id)
+                  usersApi.unFollow(u.id)
+                  .then(response=>{
+                    if(response.data.resultCode === 0){
+                      props.unFollow(u.id)
+                    }
+                    props.toggleFollowingProgress(false, u.id)
+                  })
+                   }}>
+
+                  Unfollow
+                </button>
+              ) : (
+                <button disabled = {props.followingInProgres.some(id=>id==u.id)} onClick={() => {
+                  props.toggleFollowingProgress(true,u.id)
+                  usersApi.follow(u.id)
+                    .then(response=>{
+                      if(response.data.resultCode === 0){
+                        props.follow(u.id)
+                      }
+                      props.toggleFollowingProgress(false,u.id)
+                    })
+                  }}>
+                  follow
+                </button>
+              )}
+              ekav user reducer ay senc 
+              export const follow = (userId)=>{
+
+    return (dispatch)=>{
+        dispatch(toggleFollowingProgress(true,userId))
+        usersApi.follow(userId)
+          .then(response=>{
+            if(response.data.resultCode === 0){
+                dispatch(followSuccess(userId))
+            }
+            dispatch(toggleFollowingProgress(false,userId))
+          })
+    }
+}
+export const unFollow = (userId)=>{
+
+    return (dispatch)=>{
+        dispatch(toggleFollowingProgress(true,userId))
+        usersApi.unFollow(userId)
+          .then(response=>{
+            if(response.data.resultCode === 0){
+                dispatch(unFollowSuccess(userId))
+            }
+            dispatch(toggleFollowingProgress(false,userId))
+          })
+    }
+}
