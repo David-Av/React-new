@@ -1,7 +1,7 @@
 *******************************************************************
 nayi noric Provideri masin u contexti masin u reducerner@ karevor u dispatch@ 
 das64(SHAT USHADIR NAYEL MASIVI METODNEROV ESI ESIMINCHER AREC some metod@ ushadir )
-
+u thunk-i dispatch@
 *******************************************************************
 //////////////////////////////////////////////////
 das56
@@ -256,3 +256,4 @@ export const unFollow = (userId)=>{
           })
     }
 }
+///////////////////////////////////////////////////////////////////

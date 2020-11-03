@@ -11,24 +11,32 @@ const instance = axios.create({
 })
 
 export const usersApi = {
-     getUsers(currentPage ,pageSize){
-
-        return instance
-           .get(
-             `users?page=${currentPage}&count=${pageSize}`,{withCredentials:true}
-           ).then(response=>response.data)
-     },
-     follow(userId){
-      return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
-           },
-     unFollow(userId){
-      
-     return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
-         
-
-     },
+  getUsers(currentPage, pageSize) {
+    return instance
+      .get(`users?page=${currentPage}&count=${pageSize}`, {
+        withCredentials: true,
+      })
+      .then((response) => response.data);
+  },
+  follow(userId) {
+    return instance.post(`follow/${userId}`);
+  },
+  unFollow(userId) {
+    return instance.delete(`follow/${userId}`);
+  },
+  auth() {
+    return instance.get(`auth/me`);
+  },
+  getProfile(userId) {
+    
+    return instance.get(`profile/${userId}`);
+  },
+};
+export const authAPI = {
+  me(){
+    return instance.get(`auth/me`)
+  }
 }
-
 
 // export const getUsers = (currentPage ,pageSize)=>{
 
