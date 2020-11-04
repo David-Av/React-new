@@ -1,7 +1,7 @@
 *******************************************************************
 nayi noric Provideri masin u contexti masin u reducerner@ karevor u dispatch@ 
 das64(SHAT USHADIR NAYEL MASIVI METODNEROV ESI ESIMINCHER AREC some metod@ ushadir )
-u thunk-i dispatch@
+u thunk-i dispatch@ objecti u arrayi gluboki copin 
 *******************************************************************
 //////////////////////////////////////////////////
 das56
@@ -257,3 +257,220 @@ export const unFollow = (userId)=>{
     }
 }
 ///////////////////////////////////////////////////////////////////
+das68 REDIRECT
+aysinqn vor ej@ avtomat mez qcuma urish eji vra menq state-um unenq auth-i stat@ dra mej parametr ka isAuth vor@ asuma login exac enq te che eti vercnum enq Dialogs component-um proverka enq grum ete false a REDIRECT ani logini eji vra REDIRECT-i hamar ka component
+const Dialogs = (props) => {
+    let addMessage = ()=>{
+      props.addMessage()
+    }
+    let updateDialogText = (e)=>{
+      let text = e.target.value
+      props.updateDialogText(text)
+
+    }
+  let dialogsDataM = props.state.dialogsData.map((person) => (
+    <DialogPerson name={person.name} id={person.id} key = {person.id}/>
+  ));
+  let messagesDataM = props.state.messagesData.map((m) => (
+    <Message message={m.message} key = {m.id}/>
+  ));
+  ******************************************NAYI STEX
+  if(props.isAuth === false) return <Redirect to={"/login"}/>
+  **********************************************************
+  return (
+    <div className={s.dialogs}>
+      <div className={s.dialog_items}>{dialogsDataM}</div>
+      <div className={s.messages}>{messagesDataM}</div>
+      <div>
+        <input name=""  cols="10" rows="1" onChange = {updateDialogText} value = {props.state.dialogMessage}/>
+        <button onClick = {addMessage}>Add Messae</button>
+      </div>
+    </div>
+  );
+};
+un nuyn@ profileContainer-um
+class ProfileContiner extends React.Component {
+    
+  componentDidMount() {
+      
+      let userId = this.props.match.params.userId
+      if(!userId){
+          userId = 2
+      }
+      this.props.getProfile(userId)
+      
+  }
+  render() {
+    ******************************NAYI STEX
+    if(!this.props.isAuth) return <Redirect to={"/login"}/>
+    ************************************
+    return <Profile {...this.props} profile = {this.props.profile}/>;
+  }
+}
+let mapStateToProps = (state) =>({
+    profile:state.profilePage.profile,
+    isAuth:state.auth.isAuth
+})
+let WithUrlDataContainerComponent = withRouter(ProfileContiner)
+export default connect(mapStateToProps, {setUserProfile,getProfile}) (WithUrlDataContainerComponent);
+bayc de sra tex@ karanq es if@ grenq mihat componenti mej u sax texer@ erkar grelu poxaren grenq component kamel anenq urish dzev HOC-ov
+/////////////////////////////////////////////////////////////
+das69 
+High Order Component HOC
+inq@ etqan el component chi aveli shat functia a vor@ @ndunuma component u veradarcnuma urish component bayc et veradarcra component@ unena avel feauturner aysinqn karanq mi HOC sarqenq vor@ mez het kta componentner u ira het tvac componentneri mej klini nuyn konkret et HOC-i logikan senc mi bana stacvum bayc esi chi verjnakan@ prost@ esi nayi
+class ProfileContiner extends React.Component {
+    
+  componentDidMount() {
+      
+      let userId = this.props.match.params.userId
+      if(!userId){
+          userId = 2
+      }
+      this.props.getProfile(userId)
+      
+  }
+  render() {
+    if(!this.props.isAuth) return <Redirect to={"/login"}/>
+    return <Profile {...this.props} profile = {this.props.profile}/>;
+  }
+}
+let mapStateToProps = (state) =>({
+    profile:state.profilePage.profile,
+    isAuth:state.auth.isAuth
+})
+let AuthRedirectComponent = (props)=>{
+  if(!props.isAuth) return <Redirect to={"/login"}/>
+  return < ProfileContiner {...props}/>
+}
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+export default connect(mapStateToProps, {setUserProfile,getProfile}) (WithUrlDataContainerComponent);
+hima arandzin file um sarqel enq esi 
+export const withAuthRedirect = (Component)=>{
+    class RedirectComponent extends React.Component{
+        render(){
+            if(!this.props.isAuth) return <Redirect to={"/login"}/>
+            return < Component {...props}/>
+        }
+    }
+    return RedirectComponent
+}
+u eti import enq anum stex u grum senc
+class ProfileContiner extends React.Component {
+    
+  componentDidMount() {
+      
+      let userId = this.props.match.params.userId
+      if(!userId){
+          userId = 2
+      }
+      this.props.getProfile(userId)
+      
+  }
+  render() {
+    if(!this.props.isAuth) return <Redirect to={"/login"}/>
+    return <Profile {...this.props} profile = {this.props.profile}/>;
+  }
+}
+let mapStateToProps = (state) =>({
+    profile:state.profilePage.profile,
+    isAuth:state.auth.isAuth
+})
+let AuthRedirectComponent = withAuthRedirect(ProfileContiner)
+
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+export default connect(mapStateToProps, {setUserProfile,getProfile}) (WithUrlDataContainerComponent); himi miqichel dorabotka kanenq vor state mej menq amen angam HOC petq ekac key chpoxancenq petqa mihat withAuthRedirect HOC@ connect anenq barda knayes withAuthRedirect fil@
+tenc stacvuma ay senc xar@ hl@ chenq hanel withAuthRedirect file-i mej
+class ProfileContiner extends React.Component {
+    
+  componentDidMount() {
+      
+      let userId = this.props.match.params.userId
+      if(!userId){
+          userId = 2
+      }
+      this.props.getProfile(userId)
+      
+  }
+  render() {
+    if(!this.props.isAuth) return <Redirect to={"/login"}/>
+    return <Profile {...this.props} profile = {this.props.profile}/>;
+  }
+}
+let mapStateToProps = (state) =>({
+    profile:state.profilePage.profile,
+    // isAuth:state.auth.isAuth
+})
+let AuthRedirectComponent = withAuthRedirect(ProfileContiner)
+  let mapStateToPropsForRedirect = (state) =>({
+    isAuth:state.auth.isAuth
+  })
+  AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent)
+
+
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+
+export default connect(mapStateToProps, {setUserProfile,getProfile}) (WithUrlDataContainerComponent);
+withAuthRedirect.js-i mejel stacanq es tesq@
+let mapStateToPropsForRedirect = (state) =>({
+    isAuth:state.auth.isAuth
+  })
+export const withAuthRedirect = (Component)=>{
+    class RedirectComponent extends React.Component{
+        render(){
+            if(!this.props.isAuth) return <Redirect to={"/login"}/>
+            return < Component {...this.props}/>
+        }
+    }
+    let ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent)
+    return ConnectedAuthRedirectComponent
+}
+
+vobshem mi vori ban
+//////////////////////////////////////////////////////////////
+das70
+COMPOSE
+es ancac dasi cod@ aveli karch grelu hamar  compos@ redux-ic petqa import anel 
+ancaci tesq@ Dialogs-i meji darav senc 
+const DialogsContainer = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
+)(Dialogs)
+**************************************
+// let AuthRedirectComponent = withAuthRedirect(Dialogs)
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+***************************************
+export default DialogsContainer;
+compos@ vercnuma Dialogs@  skzbic qcuma withAuthRedirect-i mej ashxatuma heto qcuma verevi connecti mej ashxatuma isk profileContainer-um exav senc
+class ProfileContiner extends React.Component {
+    
+  componentDidMount() {
+      
+      let userId = this.props.match.params.userId
+      if(!userId){
+          userId = 2
+      }
+      this.props.getProfile(userId)
+      
+  }
+  render() {
+    return <Profile {...this.props} profile = {this.props.profile}/>;
+  }
+}
+
+let mapStateToProps = (state) =>({
+    profile:state.profilePage.profile,
+})
+/*
+*****************************************************************
+let AuthRedirectComponent = withAuthRedirect(ProfileContiner)
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+
+export default connect(mapStateToProps, {setUserProfile,getProfile}) (WithUrlDataContainerComponent);
+********************************************************************
+*/
+export default compose(
+  connect(mapStateToProps, {setUserProfile,getProfile}),
+  withRouter,
+  withAuthRedirect
+)(ProfileContiner)
+u nuynel users-um 

@@ -54,7 +54,7 @@ const usersReducer = (state = initialState, action) => {
             case TOGGLE_IS_FOLLOWING_PROGRESS:{
                 return {...state,followingInProgres:action.followingInProgres
                 ?[...state.followingInProgres,action.userId]
-                :state.followingInProgres.filter(id=>id!=action.userId)
+                :state.followingInProgres.filter(id=>id!==action.userId)
                 
                 }
             }
