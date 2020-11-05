@@ -474,3 +474,35 @@ export default compose(
   withAuthRedirect
 )(ProfileContiner)
 u nuynel users-um 
+*///////////////////////////////////////////////////////////////////////
+DAS71 setState, localState
+componentner@ karan unenan localState texayin aysinqn classi mej sarqum enq state class ProfileStatus extends React.Component {
+  state = {
+    editMode: false
+  }; 
+  activateEditmode() {
+      debugger
+    this.state.editMode = true
+  }
+  render() {
+    return (
+      <>
+        <div>{!this.state.editMode && <span
+            onDoubleClick = {this.activateEditmode.bind(this)}
+        >{this.props.status}</span>}</div>
+        <div>{this.state.editMode && <input value={this.props.status} />}</div>
+      </>
+    );
+  }
+}
+
+export default ProfileStatus; senc bayc stat@ poxeluc ushadir exi petqa urish functia kanchenq vor haskana vor stat@ iskakanic poxvela karanq ogtagorcenq nuyn functia-i mej vor@ ashxatuma onDoubleClick i vaxt 
+activateEditmode() {
+      this.setState({
+        editMode:true
+      })
+    
+  }
+  ay senc kamel shat cayrahex petq ekac depqum this.forceUpdate() hishi vor setState@ asinxron a 
+  /////////////////////////////////////////////////////////////////////
+  
