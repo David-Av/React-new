@@ -505,4 +505,10 @@ activateEditmode() {
   }
   ay senc kamel shat cayrahex petq ekac depqum this.forceUpdate() hishi vor setState@ asinxron a 
   /////////////////////////////////////////////////////////////////////
-  
+  das73
+  zaprosner@ put u post@ hnaravorutyun unen objectner danninner uxarkel server put@ uxarkeluc karanq erkord parametr tanq iran json-i tesqov
+  ///////////////////////////////////////////////////////////////////////
+  das74
+  componentDidUpdate
+  stanuma 2 argument prevProps u PrevState
+  componentDidUpdate-um setState@ petq lini mihst inch vor paymani mej teche max depth ashibkaya talis

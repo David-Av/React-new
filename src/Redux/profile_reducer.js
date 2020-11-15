@@ -1,14 +1,10 @@
-import { usersApi } from "../API/api";
+import { profileApi, usersApi } from "../API/api";
 
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPADTE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
-export const addPostActionCreator = () => ({ type: ADD_POST });
+const SET_STATUS = "SET_STATUS";
 
-export const onPostChangeActionCreator = (text) => {
-  return { type: UPDATE_NEW_POST_TEXT, newText: text };
-};
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE,profile });
 
 let initialState = {
   posts: [
@@ -17,7 +13,8 @@ let initialState = {
     { id: 3, message: "Second Post", likesCount: 55 },
   ],
   newPostText: "newsocial.com",
-  profile:null
+  profile:null,
+  status:""
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -43,11 +40,23 @@ const profileReducer = (state = initialState, action) => {
       profile:action.profile}
       
     }
+    case SET_STATUS:{
+      return {...state,
+      status:action.status}
+      
+    }
       default:
         return state;
   }
 };
 
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const setStatus = (status) => ({ type: SET_STATUS,status });
+
+export const onPostChangeActionCreator = (text) => {
+  return { type: UPDATE_NEW_POST_TEXT, newText: text };
+};
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE,profile });
 
 export const getProfile = (profile)=>{
   
@@ -57,10 +66,38 @@ export const getProfile = (profile)=>{
     .then((response) => {
       
      dispatch(setUserProfile(response.data))
-     console.log(response);
+    
     });
     
   }
 }
+export const getStatus = (userId)=>{
+  
+  return (dispatch)=>{
+    
+    profileApi.getStatus(userId)
+    .then((response) => {
+      
+     dispatch(setStatus(response.data))
+    
+    });
+    
+  }
+}
+export const updateStatus = (status)=>{
+  
+  return (dispatch)=>{
+    
+    profileApi.updateStatus(status)
+    .then((response) => {
+      if(response.data.resultCode===0){
+     dispatch(setStatus(status))
+    
+      }
+    });
+    
+  }
+}
+
 export default profileReducer;
 
