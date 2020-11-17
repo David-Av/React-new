@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import {
   addMessageActionCreator,
-  dialogMessageTextActionCreator,
+  
 } from "../../Redux/dialogs_reducer";
 import { withAuthRedirect } from '../Hoc/withAuthRedirect';
 import Dialogs from "./Dialogs";
@@ -15,12 +15,10 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
   return {
-    addMessage: () => {
-      dispatch(addMessageActionCreator());
+    addMessage: (newMessageBody) => {
+      dispatch(addMessageActionCreator(newMessageBody));
     },
-    updateDialogText: (text) => {
-      dispatch(dialogMessageTextActionCreator(text));
-    },
+
   };
 };
 const DialogsContainer = compose(

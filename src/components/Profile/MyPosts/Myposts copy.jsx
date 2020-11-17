@@ -7,15 +7,22 @@ const Myposts = (props) => {
   let postsDataM = props.posts.map((post) => (
     <Post message={post.message} likes={post.likesCount} key ={post.id}/>
   ));
-
-
-  let AddPost = (value) =>{
-    props.addPost(value.newPostText)
-  }
+  // let newPostElement = React.createRef();
+  let addPost = () => {
+    props.addPost();
+  };
+  let onPostChange = (e) => {
+    let text = e.target.value;
+    props.updateNewPostText(text);
+  };
   return (
     <div>
       My posts
-      <MyPostFormReduxForm onSubmit={AddPost}/>
+      <div className={s.item}>
+        <input onChange={onPostChange} value={props.newPostText} />
+        <button onClick={addPost}>Add Post</button>
+        <button>Remove Post</button>
+      </div>
       {postsDataM}
     </div>
   );
@@ -23,12 +30,10 @@ const Myposts = (props) => {
 const MyPostForm = (props)=>{
   return <form onSubmit={props.handleSubmit}>
   <div className={s.item}>
-  <Field  component="input" name="newPostText"/>
+  <Field  component="input" />
   <button>Add Post</button>
+  <button>Remove Post</button>
 </div>
 </form>
 }
-const MyPostFormReduxForm = reduxForm({
-  form:"post"
-})(MyPostForm)
 export default Myposts;

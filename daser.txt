@@ -576,3 +576,6 @@ const Login = (props)=>{
     )
 }
 mer formen kanchuma handleSubmit@ isk mer poxancac funcian kashxati kkanchvi handleSubmit-i koxmic u ira mej vorpes argument objecti tesqov kgan danniner@
+///////////////////////////////////////////////////////////////
+das76
+redux-form@ dnum enq message-i u mnacaci hamara shat lav bana el menq et flux krugavarot@ dzerov chenq sarqum sax avtomat anuma isk menq value-n vekalum u dnum enq biznesi mej bayc hima greluc input@ chi maqrvum eti kuxenq
