@@ -512,3 +512,67 @@ activateEditmode() {
   componentDidUpdate
   stanuma 2 argument prevProps u PrevState
   componentDidUpdate-um setState@ petq lini mihst inch vor paymani mej teche max depth ashibkaya talis
+  /////////////////////////////////////////////////////////////////////////////
+  das75 
+  Redux-form 
+  redux-form@ library a vor@ storei mej qcuma ira state
+  install enq anum u import enq anum redux store-um u combineReducersersi mej poxancum enq senc form:reducer
+  import { reducer as formReducer } from 'redux-form'
+  form:formReducer petqa partadir form lini grac vor ashxati
+  u im formi component@ patatum enq reduxForm sra mej connecti nman ay senc
+  const LoginReduxForm = reduxForm(
+    {
+      /// amen formen petqa unena anun ay senc vor@ graca form keyi mej
+        form:"login"
+    }
+)(LoginForm)
+vor former@ kpcnum enq iranc normal ashxatelu hamar vorpeszi inputeri vra onChange chdnenq hishi fluxi masin input-i tex@ ogtagorcum enq hatuk tager Fielder ay senc
+const LoginForm = (props)=>{
+    return(
+        <>
+            
+            <form onSubmit = {props.handleSubmit} >
+                <div>
+                    <Field type="text" placeholder={"Login"}
+                        component = {"input"}
+                        name = {"Username"}
+                    />
+                </div>
+                <div>
+                <Field type="password" placeholder={"Password"}
+                component = {"input"}
+                name = {"Password"}
+                />
+                </div>
+                <div>
+                <Field type={"checkbox"}
+                    name={"remember me"}
+                    component={"input"}
+                /> remeber me
+                </div>
+                <div>
+                    <button>Log In</button>
+                </div>
+            </form>
+        </>
+    )
+}
+const LoginReduxForm = reduxForm(
+    {
+        form:"Login"
+    }
+)(LoginForm)
+ay senc grecinq hima mez LoginForm-i propserum galis liq@ ban mez petqa handleSubmit callback@ u form graci mej eti dnum enq  onSubmit = {props.handleSubmit}
+bayc petqa container componentin vor mej patatel einq mer form@ tanq onSubmit@
+const Login = (props)=>{
+    const onSubmit = (formData) =>{
+        console.log(formData);
+    }
+    return(
+        <>
+            <h1>Login</h1>
+            <LoginReduxForm onSubmit = {onSubmit}/>
+        </>
+    )
+}
+mer formen kanchuma handleSubmit@ isk mer poxancac funcian kashxati kkanchvi handleSubmit-i koxmic u ira mej vorpes argument objecti tesqov kgan danniner@
