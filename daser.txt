@@ -579,3 +579,59 @@ mer formen kanchuma handleSubmit@ isk mer poxancac funcian kashxati kkanchvi han
 ///////////////////////////////////////////////////////////////
 das76
 redux-form@ dnum enq message-i u mnacaci hamara shat lav bana el menq et flux krugavarot@ dzerov chenq sarqum sax avtomat anuma isk menq value-n vekalum u dnum enq biznesi mej bayc hima greluc input@ chi maqrvum eti kuxenq
+/////////////////////////////////////////////////////////////////
+das77
+validators
+sarqecinq arandzin papki mej validators.js meJ@ gr@m enq funcianer@
+export enq anum u Fieldin poxancum enq ay senc
+<Field  component="input" name="newPostText"
+    validate = {[required,maxLengthCreator(10),minLength15]}
+  />
+  required@ maxLength15 minLength15 mer funcianeri anunnerna 
+  dranq karanq grenk thunkeri nman zamikaniaov vor amen amgam tarber lengtheri hamar taza code chgrenq ay senc orinak grenq
+export const maxLengthCreator =(maxLength)=> (value)=>{
+    if(value.length > maxLength) return `Max length is ${maxLength}  Symbols`;
+    return undefined;
+ 
+}
+let maxlength10 = maxLengthCreator(10)
+const MyPostForm = (props)=>{
+  return <form onSubmit={props.handleSubmit}>
+  <div className={s.item}>
+  <Field  component="input" name="newPostText"
+    validate = {[required,maxlength10]}
+  />
+  <button>Add Post</button>
+</div>
+</form>
+}
+bayc es maxLength@ petqa durs hanel senc ban sarqel vor arrayi mej henc kanchum es maxDeepth ashibkaya talis vorovhetev component@ amen angam rendera linum u amen angam kanchuma eti
+
+arandzin texer sarqum enq componentner
+export enq anum u vortex vor grum enq field @tex component = {u et component@ vor@ vor arandzin sarqel enq}
+
+export const Textarea = ({input,meta,...props}) => {
+    
+    return (
+        <div>
+            <textarea
+                {...input} {...props}
+            />
+        </div>
+    )
+}
+esi nayi 
+Field@ mez meta ela poxancum dra mijocov mer componentin vor arandzin texa grvac u poxancaca field-in karanq asenq iran vonc pahi meta mej error touched ban ay tenc banera 
+export const Textarea = ({input,meta,...props}) => {
+    const hasError = meta.touched && meta.error 
+    return (
+        <div className = {s.formControl + ' ' + ( hasError ? s.error : '')}>
+            <div>
+            <textarea
+                {...input} {...props}
+            />
+            </div>
+           {hasError && <span>{meta.error}</span>}
+        </div>
+    )
+}

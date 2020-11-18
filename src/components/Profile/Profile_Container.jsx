@@ -14,7 +14,7 @@ class ProfileContiner extends React.Component {
       
       let userId = this.props.match.params.userId
       if(!userId){
-          userId = 2
+          userId = 12354
       }
       this.props.getProfile(userId)
     
