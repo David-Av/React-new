@@ -14,9 +14,10 @@ class ProfileContiner extends React.Component {
       
       let userId = this.props.match.params.userId
       if(!userId){
-        debugger
           userId = this.props.authorizedUserId;
-          // 12354
+          if(!userId){
+            this.props.history.push("/login")
+          }
       }
       this.props.getProfile(userId)
     

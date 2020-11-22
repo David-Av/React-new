@@ -667,3 +667,78 @@ let action = stopSubmit("Login", {_error:"Common Error"})
 hajord dasin miqich kuxenq sax initialization kanenq
 ////////////////////////
 das80
+app-n connect-ov enq patatum bayc qani vor appi mej routerner kan vor inq@ chisht ashxati mihatel app-n petqa withRouter ov patatenq sarqecinq arandzin appreducer
+mej@ esa 
+import { stopSubmit } from "redux-form";
+import { authAPI, usersApi } from "../API/api";
+import { me } from "./auth-reducer";
+
+const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
+
+let initialState = {
+
+    initialized: false
+
+
+};
+
+const appReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case INITIALIZED_SUCCESS:
+            return {
+                ...state,
+                initialized: true
+
+            }
+
+        default:
+            return state;
+    }
+};
+
+export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS })
+
+export const initializeApp = () => {
+    return (dispatch) => {
+     let dispatchResult =   dispatch(me())
+        dispatch(initializedSuccess())
+    }
+}
+export default appReducer;
+
+
+//////////////////////
+nayi dispatch(initializedSuccess()) es tox@ petqa lini menak 
+arajin tox@ lineluc heto dra hamar promisa petq dra hamar authreducerum grel enq senc 
+//////////////////////////
+
+
+export const setAuthUserData = (id,email,login, isAuth)=>({type:SET_USER_DATA,payload:{id,email,login, isAuth}})
+export const me = ()=>(dispatch)=>{
+   //********return authAPI.me()
+    .then((response) => {
+            
+      if(response.data.resultCode === 0){
+        let {id,email,login} = response.data.data
+        dispatch(setAuthUserData(id,email,login,true))
+      }
+     
+   
+      
+ });
+    
+  }
+
+  nayi return authAPI.me() es tox@  
+  en mekum el senc enq grum arden 
+
+  export const initializeApp = () => {
+    return (dispatch) => {
+     let promise =   dispatch(me())
+     promise.then(()=>{
+        dispatch(initializedSuccess())
+     })
+        
+    }
+}
+aysinqn menq hima nenc arecinq vor serverin zaprops uxaki et zapros@ ga heto nor baci ej@
