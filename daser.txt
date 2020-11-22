@@ -637,3 +637,33 @@ export const Textarea = ({input,meta,...props}) => {
 }
 //////////////////////////////////////////////////////////
 das78 login saytic
+//////////////////////////////////////////////////////////
+das79 stopSubmit reduxForm i mejic functia a
+gr@m enq senc
+export const login = (email,password,rememberMe)=>{
+  return(dispatch)=>{
+    authAPI.login(email,password,rememberMe)
+    .then((response) => {
+            
+      if(response.data.resultCode === 0){
+        dispatch(me())
+        
+      } else{
+        let action = stopSubmit("Login", {email:"Wrong Email"});
+        dispatch(action)
+      }
+     
+   
+      
+ });
+    
+  }
+}
+else-i mej dispatch enq anum et functian 
+araji parametr@ iran poxancum enq formayi anun@ logini formayi anun@ Login ei drel 2rd ov fielderi anunner@ orinak logini mej ka email u password fielder@
+bayc arji senc grel vor obshi ashibken cuyc ta 
+let action = stopSubmit("Login", {_error:"Common Error"})
+
+hajord dasin miqich kuxenq sax initialization kanenq
+////////////////////////
+das80
