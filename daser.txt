@@ -742,3 +742,50 @@ export const me = ()=>(dispatch)=>{
     }
 }
 aysinqn menq hima nenc arecinq vor serverin zaprops uxaki et zapros@ ga heto nor baci ej@
+////////////////////////////////////////////////
+das81 selectorner
+selectorner@ functianer en vor stanum en state@ vercnum en inch petqa u talis en mez sarqecinq users_selectors.js
+ export const getUsersS = (state)=>{
+ return state.usersPage.users
+}
+
+export const getPageSize = (state)=>{
+    return state.usersPage.pageSize
+   }
+
+   
+   export const getTotalUsersCount = (state)=>{
+    return state.usersPage.totalUsersCount
+   }
+   
+   export const getCurrentPage = (state)=>{
+    return state.usersPage.currentPage
+   }
+   export const getIsFetching = (state)=>{
+    return state.usersPage.isFetching
+   }
+   export const followingInProgres = (state)=>{
+    return state.usersPage.followingInProgres
+   }
+   @ndex el sranic poxecinq 
+   // let mapStateToProps = (state) => {
+//   return {
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     currentPage: state.usersPage.currentPage,
+//     isFetching: state.usersPage.isFetching,
+//     followingInProgres:state.usersPage.followingInProgres
+//   };
+// };
+ayyy sraaaaaaaaan
+let mapStateToProps = (state) => {
+  return {
+    users: getUsersS(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgres:followingInProgres(state)
+  };
+};

@@ -76,7 +76,7 @@ export const getUsers = (currentPage,pageSize)=>{
 
     return (dispatch)=>{
     dispatch(setIsFetching(true));
-
+    dispatch(setCurrentPage(currentPage))
     usersApi.getUsers(currentPage, pageSize)
       .then((response) => {
         return (
