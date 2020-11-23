@@ -789,3 +789,19 @@ let mapStateToProps = (state) => {
     followingInProgres:followingInProgres(state)
   };
 };
+selectorneri mej inch logika uzes karas gres orinak arrayi map kam urish logika bayc urish dzev kanenq erevi vorovhetev amen angam mapStateToProps@ kanchvuma daje ete et componentin@ chi u amen angam petq chi ankap tex@ selectorner@ iranc meji logikan anen ka hatuk library vor@ ognuma vor mapStateToProps@ amen angam chashxati 
+////////////////////////////////////////////////////////
+das83 reselect
+nenc enq anelu reselect library i mijocov vor amen angam sax functianer@ chkanchven ete menq unenq djvar logikayov selectorner iranc petqa sarqenq reselect-i mijocov
+
+import { createSelector } from "reselect" 
+
+ export const getUsersS = (state)=>{
+ return state.usersPage.users
+}
+
+export const getUsersSuperSelector = createSelector(getUsersS,(users)=>{
+    return users.filter(u=>true)
+}) 
+
+stacanq esi mapStateToProps-um kanchum enq getUsersSuperSelector@ poxancum enq stat@ createSelector araji parametrov kanchuma getUsers@ poxancuma state@ heto 2 mer grac callbacki mej stanuma eti u nenca anum vor ete konkret eti chi poxvel ira component@ an@ndhat render chi linum u getUsersSuperSelector kara mi qani hat prostoy selectorner @nduni sax hertov kara @nduni vobshem nra hamara vor ete shat canrabernvac operacianer unes sranq gres vor amen angam sax funcianeri het noric chkanchven
