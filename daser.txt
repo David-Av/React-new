@@ -847,3 +847,45 @@ export default ProfileStatusWihtHooks;
 
 
 nayi vobshem exav senc bayc stex mnac mihatel component did update-i harc@ ete useEffects kgres kkardas hooker@ mi state-i mej chen kara mi qani key unenan dra hamar nayi vonc em 2 hat arandzin state sarqel ira funcianerov karas tenc qani hat uzes sarqes 
+///////////////////////////////////////
+85 useEffect
+
+const ProfileStatusWihtHooks =props=> {
+
+ let [editMode,setEditMode] = useState(false);
+ let [status,setStatus] = useState(props.status);
+ useEffect(()=>{
+  setStatus(props.status)
+
+ },[])
+ const activateMode = ()=>{
+  setEditMode(true)
+ }
+ const deactivateEditMode = ()=>{
+  setEditMode(false)
+   props.updateStatus(status)
+ }
+ const onStatusChange = e=>{
+   setStatus(e.currentTarget.value)
+ }
+    return (
+      <>
+        <div>{!editMode && <span
+            onDoubleClick = {activateMode}
+        >{props.status || '-------'}</span>}</div>
+        <div>{editMode && <input
+        onChange={onStatusChange}
+        autoFocus = {true} 
+            onBlur={deactivateEditMode}
+            value={status}
+             />}</div>
+            
+      </>
+    );
+  }
+  grel enq senc useEffect-i erkord argument datark array@ nshanakuma vor iran asum enq amen pererisovka lineluc mi angam kanchi iran bayc vabshe xorhurd chi trvum tenc anel hamel mez petqa nenc anel vor nor props galuc eli ashxati inq@ componentDidUpdate-i nman 
+   useEffect(()=>{
+  setStatus(props.status)
+
+ },[props.status])
+ grumenq senc aysinqn hima inq@ nayuma amen angam erb vor props.status@ poxvela et vaxta ashxatelu chpoxvec chi ashxatelu 
