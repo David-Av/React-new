@@ -805,3 +805,45 @@ export const getUsersSuperSelector = createSelector(getUsersS,(users)=>{
 }) 
 
 stacanq esi mapStateToProps-um kanchum enq getUsersSuperSelector@ poxancum enq stat@ createSelector araji parametrov kanchuma getUsers@ poxancuma state@ heto 2 mer grac callbacki mej stanuma eti u nenca anum vor ete konkret eti chi poxvel ira component@ an@ndhat render chi linum u getUsersSuperSelector kara mi qani hat prostoy selectorner @nduni sax hertov kara @nduni vobshem nra hamara vor ete shat canrabernvac operacianer unes sranq gres vor amen angam sax funcianeri het noric chkanchven
+////////////////////////////////////////////////////////
+das84 hooker
+hooker@ funcianer en voronq inch vor vaxt mtnum en u inch vor gorca anum vonc jogeci willMount didMount ban dranq vor classneri mejen grum eti hnaravora hookerov functionali mej grel functional componenti mej grum enq useState es functian importa linum Reactic heta talis mez array 2 hat arajin@ meji znacheniyaner@ 2rd@ functian vori mijocov et znacheniyan karanq poxenq es pah@ ushadir karda nayi let arr = [10,20]
+ let [a,b] = arr stex a-i valuen klini 10 isk b-in@ 20 esi grelu shat harmar dzeva 
+ import React from "react";
+import { useState } from "react";
+
+const ProfileStatusWihtHooks =props=> {
+
+ let [editMode,setEditMode] = useState(false);
+ let [status,setStatus] = useState(props.status);
+ const activateMode = ()=>{
+  setEditMode(true)
+ }
+ const deactivateEditMode = ()=>{
+  setEditMode(false)
+   props.updateStatus(status)
+ }
+ const onStatusChange = e=>{
+   setStatus(e.currentTarget.value)
+ }
+    return (
+      <>
+        <div>{!editMode && <span
+            onDoubleClick = {activateMode}
+        >{props.status || '-------'}</span>}</div>
+        <div>{editMode && <input
+        onChange={onStatusChange}
+        autoFocus = {true} 
+            onBlur={deactivateEditMode}
+            value={status}
+             />}</div>
+            
+      </>
+    );
+  }
+
+
+export default ProfileStatusWihtHooks;
+
+
+nayi vobshem exav senc bayc stex mnac mihatel component did update-i harc@ ete useEffects kgres kkardas hooker@ mi state-i mej chen kara mi qani key unenan dra hamar nayi vonc em 2 hat arandzin state sarqel ira funcianerov karas tenc qani hat uzes sarqes 
