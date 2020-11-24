@@ -6,7 +6,9 @@ import s from "./Myposts.module.css";
 import Post from "./Post/Post";
 
 const Myposts = React.memo(props => {
-  let postsDataM = props.posts.map((post) => (
+  let postsDataM = [...props.posts]
+  .reverse()
+  .map((post) => (
     <Post message={post.message} likes={post.likesCount} key ={post.id}/>
   ));
 
