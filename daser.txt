@@ -889,3 +889,33 @@ const ProfileStatusWihtHooks =props=> {
 
  },[props.status])
  grumenq senc aysinqn hima inq@ nayuma amen angam erb vor props.status@ poxvela et vaxta ashxatelu chpoxvec chi ashxatelu 
+ ////////////////////////////////////////////////////////////
+ das87 shouldComponentUpdate
+
+ classovi componenti mej ka senc funcia shouldComponentUpdate inq@ stanuma 3 hat argument nextProps nextState u inq@ asuma amen agam petqa noric update arvi render@ petqa eli ashxati te che qani vor canr processa amen angam etqan ban nkarel@ karanq menq senc grenq 
+ shouldComponentUpdate(nextProps,nextState){
+   if(nextProps!=this.props || nextState != this.state){
+     return true
+   }
+ }
+ aysinqn hamematenq nor tena petqa nkarel te che 
+ byac goyutyun uni PureComponent dra hamar erb vor grum enq 
+ class Post extends React.Component karanq grenq ay senc
+ class Post extends React.PureComponent es PureComponent@ mer tex@ avtomat kani hamematutyun@ isk functional componenti depqum patatum enq React.memo-i mej ay senc
+ const Myposts = ****React.memo*****(props => {
+  let postsDataM = props.posts.map((post) => (
+    <Post message={post.message} likes={post.likesCount} key ={post.id}/>
+  ));
+
+
+  let AddPost = (value) =>{
+    props.addPost(value.newPostText)
+  }
+  return (
+    <div>
+      My posts
+      <MyPostFormReduxForm onSubmit={AddPost}/>
+      {postsDataM}
+    </div>
+  );
+}) ;
