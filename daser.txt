@@ -1,3 +1,408 @@
+daser vor petqa krknel
+DAS 26
+//////////////////////
+das 16 props
+component@ et funcia a vor heta talis jsx razmetka
+bayc menq grum enq iran tegi tesqov
+react@ ashxatacnuma et funcian
+componentmel funciayi nman kara stana argumentner
+defaultov misht react@ datark object a poxancum componentin
+qani vor componentnner@ grum enq atribunerov karanq atribut avelacnenq orinak post@ grenq <post name="anun" age="tariq"/>
+eti kpoxancvi componentin vorpes argument jsx-i mej ete uzumes
+javascript gres petq sranq dnes {}
+*******************************************************
+das 19 routing
+petqa paket ustanovka anenq sra hamar skzbic $ npm i react-router-dom bayc node nenc petqa anenq vor gitignore chlini 
+aysinqn uxarkeluc inqnel gna git petqa grenq  $ npm i react-router-dom -save vor gna package.json-i mej vor hetaga
+ogtagorcoxner@ karenan iranq el install anen et install aneluc heto app.js grum enq <Route/> component@ ay senc 
+<BrowserRouter>
+    <Route component = {Dialogs}/>
+    <Route component = {Profile}/>
+</BrowserRouter>
+sax ej@ petqa wrap anenq <BrowserRouter> i mej
+nax petqa linkerin href grel <a href="/profile">Profile</a>
+heto route mej nshel
+<Route path="/profile" component={Profile}/> path@
+rout@ hetevuma urlin ete url-um gruma profile inq@ profile componentna
+zagruzka anum
+*************************************************************
+das 20
+nenc enq anum vor ejer@ poxeluc glxavor ej@ reload chlini 
+es dasi mej sax a-er@ poxum enq navbarum grum enq <Navlink hrefi texn el grum enq to='/profile'></Navlink> navlink@ eli component a eli importov
+esi arden kochvuma SPA single page application bayc console-i mej
+inq@ <a></a>   a mnalu vor nayes nuyn href-ov prost@ et funcia aveli chisht componenti mej verjum graca preventDefault() defaultov a misht reload er anum stranicen eti graca vor chani
+u navlink@ defaultov a tegin avelacnuma active class@
+ete xarnvuma classner@ karanq navlink i mej grenq
+activeClassName u tanq mer uzac class@
+navlink@ poxuma url@ isk Route component@ vor ancac dasin grel enq 
+app.js-mej hetevuma urlin u zagruzka a anum ira mej nshvac component@
+/////////////////////////////////////////////////////////////
+*************************************************************
+das 21
+Dialogs ej@ tetev verstka
+/////////////////////////////////////////////////////////////
+*************************************************************
+das 22 Route exact
+Dialogsin Navlinker avelacrecinq nayel anpayman to-n vonca grac
+mejner@ /dialogg/3 demi dialog@ graca vor dialogs ej@ chpoxvi
+url-um
+ete uzumenq vor en vaxt erb vor url-um graca /dialogs/1 et vaxt
+cuyc chta konkret dialogs ej@ petqa app.js-um grac Rout@ sarqenq
+senc <Route exact path="/dialogs" component={Dialogs}/>
+avelacnenq exact bar@
+//////////////////////////////////////////////////////////////
+**************************************************************
+das23
+dialognerni meji grac diver@ poxecinq componentnneri u 
+ashxatecinq componentnneri propserov u nuynnel messagneri het
+u miqichel profile@ u miqichel poster@ poxecinq
+//////////////////////////////////////////////////////////////
+**************************************************************
+das 24
+patrastvum enq vor mapov poxancenq propser@ componentnnerin
+es dasin aranc mapi prost@ stexcum enq massivner u grum propsin
+poxancvelu tex@ hajordin ksarqenq map-ov vor poxancvi u ruchnoy
+etqan chgrenq vabshe chisht chi ruchnoy UI u BLL senc hardcode em arel
+hajordin sax kuxenq
+//////////////////////////////////////////////////////////////
+**************************************************************
+das 25
+sksum enq ashxatel mapov poxancel propser@ react-um vor jsx-i mej 
+grum enq zangvac es {} sranc mej inq@ sax kpcnum irar toxov cuyc a talis
+zangvaci mej karanq dnenq henc component@ tenc kashxati tox chi sarqi
+karanq senc anenq 
+let elementsData = [
+  <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />,
+        <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
+]
+u arden jsx - mej grenq {elementsData}  u kashxati 
+es grel ei senc       
+ {dialogsData.map((elem => {
+          return (
+            <DialogItem name= {elem.name} id = {elem.id} />
+          )
+        }))}
+        bayc es mer axper@ asum taza masiv stananq heto eti grenq
+         let elementsData = dialogsData.map((elem => {
+  return (
+    <DialogItem name= {elem.name} id = {elem.id} />
+  )
+}))
+        u jsx- mej {elementsData}
+///////////////////////////////////////////////////////////////
+***************************************************************
+das 26
+hishecinq strukturan noric bajanecinq dialogi componentnner@
+u karevor eli baner petqa esi krknel u tetev redux-i masin  
+19:00ic; BLL-ic u Reduxic galis UI UI-nel reactna nkaruma cuyca talis mez
+danniner@ petqa linen urish tex voch te UI-um henc himikva gracov
+danniner@ UI mej mypost mej graca heto kuxenq hl@ vor chgitem vonc
+ componenti mej danniner petq chi grac linen
+//////////////////////////////////////////////////////////////
+**************************************************************
+das27
+app- mej grac route@ poxum enq es tesqic 
+<Route path="/dialogs" component={Dialogs} /> 
+darcnum enq senc 
+<Route path="/dialogs" render={()=><Dialogs/>} />
+sax arvuma nra hamar vor karenanq es etapi vra danniner@ grenq index.js
+um heto propsov poxancenq app.js-in u ira mejic el poxancenq et componentin u inqnuruyn porcum enq sax texapoxel app.js himma commit kanem aa
+//////////////////////////////////////////////////////////////
+**************************************************************
+das 28 arecinq sax taranq index-js i mej commit araca
+//////////////////////////////////////////////////////////////
+**************************************************************
+das 29
+danniner@ hanum enq index.js-ic qcum enq state.js-mej petqa state.js@ import  anenq index.js i mej heto sksenq dranic vonc haskaca reduxi
+nman ban enq uzum stananq hl@ reduxic vabshe texyak chenq
+taranq danniner@ state.js poxancecinq aveli akuratni objectneri mijocov
+ karas het tas nayes commit@
+/////////////////////////////////////////////////////////////
+*************************************************************
+das31 
+sovorakan javascript-um menq ashxatum enq DOM-i het isk reactum
+ka virtual DOM u menq ashxatum enq virtual DOM-i het isk henc DOM-i 
+het ashxatuma react@ aysinqn menq petqa xusapenq en depqeric erb 
+vor henc menq enq ashxatum DOM- het petqa tanq virtual DOM-in 
+react@ vercni ev ashxati iskakan DOM-i het aysinqn reactum chenq grum
+document.getElementByID petq chi grel vabhse hl@ vor parz chi es metod@
+chishta te che bayc hima senc enq anum react@ uni funcia
+let newPostElement =  React.createRef()
+ssilka a sarqum depi et teg@ hima tenc enq porcum anel u et pahum enq popoxakani mej u vorpes atribut ref={newPostElement} grum enq tagi mej
+u vsyo inq@ kpav et tegin heto ete orinak text area-i mejic uzum enq 
+stananq value grum enq orinak senc 
+let text = newPostElement.current.value
+/*current@ stex asuma vor henc et elementi 
+masina xosq@ bayc itogum esi asuma vor referov meka eli ashxatum enq DOM-i
+het voch te virtual DOM-i het
+/////////////////////////////////////////////////////////////
+*************************************************************
+das32
+componenti propserov funcia enq poaxncum state-um grum enq bayc chgidem xi
+grecinq objectic durs u petq iran export anenq aran defaultov ay senc grelov
+export let addPost = (postMessage) =>{
+    let newPost = {
+      id:7,
+      message:postMessage,
+      likes: 0
+    };
+    state.profilePage.posts.push(newPost)
+  } aysinqn export grecinq demic ira u import@ index.js petq senc anenq
+  import {addPost} from './Redux/state'; pakagcerov es depqum importi
+  vaxt anun@ petqa chisht grel nuyn@ hima lava qcecinq poxancvec normal
+  bayc mi ban ka index.js i mej vor graca  ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+    <App appState={state} addPost={addPost}/>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+); aysinqn inq@ vercnum u mi angam nkaruma sax state@ u vsyo isk dra masin
+myus videoe-um kxosanq u es das@ arji eli nayel
+///////////////////////////////////////////////////////////////
+***************************************************************
+das33
+dobavlenia posta na stenu Render-i masin vonc rerender anenq
+dra hamar arji taza funcia grel et es dasi hamara vabshe bayc chgitem et
+chishta te che dra hamar index.js @ grum enq senc 
+let rerenderEntireTree = () =>{
+  ReactDOM.render(
+    <React.StrictMode>
+      <BrowserRouter>
+      <App appState={state} addPost={addPost}/>
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+rerenderEntireTree()
+aysinqn dnum enq funciayi mej bayc ban@ ena vor index.js-ic chenq kara
+iran import anenq state.js u grenq nra funcianeri mej dra hamar petqa 
+sarqenq mihta arandzin render.js file u dra mejic import anenq et 2 tex@
+state.js index.js
+bayc mihat taza knayes esi ciklayin xaxtumneri masinela xosum vor stat@
+chen kara mi qani tex import anenq aysinqn renderi mej petq chi state lini
+renderi mej graca prost@ funcian aranc kanchelu dra hamar stat@ petqa grenq
+kanchox texum import anenq iran tvyal depqum index.js-um import anenq
+////////////////////////////////////////////////////////////////////
+********************************************************************
+das34
+himkva aracov poxvuma UI@ bayc state@ chi poxvum add post sxmum enq avelanum
+a bayc state@-i mej ban chi poxvum dra hamar ej@ vor refresh enq anum 
+koruma post@ voncvor esi bacatruma asenq unenq text area dra mejin@
+sax petqa ga BLL-ic state-ic aysinqn uzuma asi vor text arean uzum enq poxenq asenq grecinq mi tar mej@ eti gnuma Bll aysinqn state @ndex 
+poxvuma u heta galis UI poxecinq bayc shat vata ashxatum u chem haskanum
+xi {uxecinq sarqecinq input mejnel vorpes atribut grecinq autoFocus="true"}
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+das 35
+ciklayin zavisimost petq chi vor lini orinak es index.js inch vor ban em 
+import arel render.js-ic render.js el cankali chi vor es import anem 
+index.js-ic funcianer@ vor@ menq poxancum enq inch vor mekin vor kanchi
+kochvuma callback funkcianer vobshem vor ciklayin zavisimost chlini 
+importi tex@ funciayi argumentov enq poxancum urish funkcian darav callback
+tes state.js @ heto argumentin talis enq popoxakan ay senc
+let rerenderEntireTree
+  export const subscribe = (observer) =>{
+    rerenderEntireTree = observer
+  }
+  kochvuma pattern petqa kardal dra masin observer petqa patternner@ nayel
+  ////////////////////////////////////////////////////////////////////
+  ********************************************************************
+  das 37
+  state@ qcum enq store object-i mej vor oop-in nmanvi bayc stex mihat
+  ban ka menq stat@ kacnhum enq getterov isk getteri mej graca this
+  u getter@ kanchum enq index js-um petq ushadir linel this-i het
+  callback-i vaxta haram linum erb vor kanchum enq iran ay senc ()
+  nayi aysinqn menq propsner@ poxancelov gnum hascnum enq mypost-in
+  u dusa galis vor orinak addPost@ erb vor ashxatuma  funcian mej@
+  graca this bayc et this@ michev my profile-ov poxancvac object-ina
+  verabervum arden dra hamar amenaskzbic poxanceluc index.js-um petqa
+  iran bind anenq store-in ay senc addPost={store.addPost.bind(store)
+  ay sen hima bind araca u iran vor kanchenq arden kpaca store-in
+  u this@ kashxati store-i hamar
+  MENQ HIMA MER ARANZIN REDUXN ENQ SARQUM HETO KANCNENQ ISKAKAN REDUXIN
+  ////////////////////////////////////////////////////////////////////
+  ********************************************************************
+  das 38
+  Disaptch vonc haskaca sax metodner@ poxum enq Disaptch() metodeov
+  vorovhetec karoxa menq unenanq orinak mi 200 hat funcia u dranq
+  hertov componentnnerin poxacnel@ etqan el harmar chi Disaptchin
+  petqa poxancel argumenq defaultov anun@ dnum enq action 
+  et object@ petqa unena type svoystvan mej@ grac vor funcian petqa
+  ashxati aysinqn senc
+      dispatch(action){
+      if(action.type === "ADD-POST"){
+        this.addPost()
+      }else if(action.type === "UPDATE-NEW-POST-TEXT")
+      this.updateNewPostText() //chmoranas this-i arandznahatkutyunneri masin//
+    }
+
+    sax poxecinq funcianer@ drecinq dispatch-i mej u hima liq@
+    funcianer poxancelu tex@ poxancum enq mihat dispatch
+    orinak my postic ay senc
+        let addPost = () => {
+      props.dispatch({type:"ADD-POST"})
+    }
+    ///////////////////////////////////////////////////////////////////
+    *******************************************************************
+    das 39 action creator
+    sarqecin state . js -um action creatorner vor amen angam dispatchi 
+    mej menq ruchnoy chgrenq voch mi ban ayl unenq funcia vor@ avtomat
+    generacnuma et object@ aranc sxalneri normal stacvuma u state-i mej
+    actionnerin typer@ grecinq const erov vor vaabshe sxalvelu dzev chlini
+    ///////////////////////////////////////////////////////////////////
+    *******************************************************************
+    das 40 krknutyun inch ancel enq
+    u dialogsum avelacnum enq state-ic ekacox input sendov
+////////////////////////////////////////////////////////////////////////
+***********************************************************************
+    das41 reducer
+    reducerner@ katarum en gorcoxutyun poxum en state@ u veradarcnum en poxvac
+    state@ arandzin faylum a linum vabshe sranq amen mek@ ira hamar poxecinq
+    if elsernerl meji poxecinq switch caseerov dispatchin enq poxancum actionner@
+    amen angam sax ashxatum a tenuma inch action a mej@ u eti a anum senc dispatch@ chi mecanum u actioncreatornern el enq texapoxum reducerneri mej
+    u reducer@ stanuma state-i en hatvac@ vor@ iran petqa
+    u if elseri pahov karanq poxenq switch caserov
+    /////////////////////////////////////////////////////////////////////
+    ********************************************************************
+    /////////////////
+    dispatch-i masin nayi dispatch@ ka reduxi store-um @ndex combiner reducersa arac u tenc sarqvaca state sax araca cherez dispatch erb vor menq amen angam gorcoxutyun enq anum dispatch@ ashxatacnuma sax reducerner@ vori action-i type@ brnec enel ashxatuma mnacacacn el en ashxatum prost@ iranc action-i type@ chen stanum dra hamar veradarcnum en iranc defaultov grac argument stat@
+    ashxateluc heto dispatch@ kanchuma subscribe@ (store.subscribe()) dra mejel menq index js-um grel enq store.subscribe(()=>{
+  let state = store.getState()
+  rerenderEntireTree(state)
+})
+    /////////////////
+    das42 Redux
+    nax poxecinq state.js@ store.js-i u install enq anelu redux@ $ npm install redux --save senc reduxov commadnov karanq sarqenq stor@ vor@ menq ruchnoy
+    einq sarqel sarqum enq reduxStore.js mej@ senc
+    import {createStore} from 'redux'
+    let store = createStore()
+    et aneluc heto reducerner@ combine enq anum eli funciayov
+    bayc reducernerin petqa hima amen angam defaultov inch vor state ga orinak
+    profilePageReducer in stati meji profilePage objectneneq poxancum defaultov
+    index.js um unenq store.subscribe ashxatuma amen angam vor inch vor ban enq 
+    porcum poxel dra hamar iran petqa tanq reducernerEntireTree funcian vor amen
+    angam ban poxeluc ashxati rerenderEntireTree-n u vorpes argument stana store.getState()
+                        store.subscribe(()=>{
+                      let state = store.getState()
+                      rerenderEntireTree(state)
+                                                })
+    sarelu hamar
+//////////////////////////////////////////////////////////////////////////////////
+das43 container components
+imast@ ena vor component@ chstana avelord informacia store-ic orinak dispatch chstana urish dzev lini mer komponentner@ himikva dumb componentner en presentacion iranq cankali a vor store u dispatch chstanan dra hmar petqa stexcel
+container component vor mej klini presentacion component@ container componentin kga props@ container componentin kga props state-ov u dispatch-ov isk presentacion
+componentin kga current value mekel onChanged funcian sarqenq mypostContainer.jsx
+inq@ kara maqur component chlini qani vor petqa propsner stana ira mej container component@ return a anum presentacion component@
+//
+das44
+esi imanalu hamar dasa hl@ chenq ogtagorcelu senc dzevov
+Context API Context@ nenc ban vor roditelski component@ aysinqn mer depqum App
+kara unena Context vori mej linen danniner u et dannineric karenan ogtven bolor@ meji mejinner@ daje aysinqn stor@ karanq aranc propseri poxancenq bayc Context@ global baneri hamara Context@ sarqvuma funciayov orinak senc const const StoreContext  = React.createContext(null) defaultov value tox lini null esi voncvor component lini heto index js-i mej app-n wrap enq anum ay senc<StoreContext.Provider value = {store}>
+      <App state={state} dispatch = {store.dispatch.bind(store)} store={store}  />
+      </StoreContext.Provider>
+      u karanq el App-in vabshe ban chpoxancenq sax anenq Contextov isk stacoxin petqa wrap anenq <StoreContext.Consumer>
+      isk mejnel ay senc (argument vor@ value-n a ) =>{
+        return (
+          stex el mnacac componentner@
+        )
+      } esi anonim funcia a componenti mej
+      </StoreContext.Consumer> ete aneluc apush ashibka a berum render is not a funcion nayi videon 21.50 ic u eli baner ka knayes heto sarqecinq <Provider/>
+      es bard baneri tex@ ka biblioteka react-redux eti kogtagorcenq react-redux@
+      parzacnuma redux@ 
+
+      ////////////////////////////////////////////////
+      das45
+      npm install react-redux --save
+      nuyn dzev uni zavodskoy <Provider></Provider> containeri mej petqa connect anenq eti funcia a vori mijocov sarqum enq container component 
+      orinak senc const SuperDialogsContainer = connect () () mi angam connect@ ashxatec erkrord angam araji ashxateluc heto het veradarcrec funcia erkrod pakagcer@ verabervuma connect() ira veradarcrac funciayin dran poxancum neq en komponent@ vor vor uzum enq wrap exac lini ira mej aysinqn ete uzum enq SuperDialogsContainer-i mej wrap exav lini Dialogs@ grum enq connect () (Dialogs) isk connect-i araji pakagceri mej poxancum enq funcianer voronq veradarcnum en objectner@ aysinqn orinak senc let mapStateToProps = ()=>{
+        return {a:2}
+      }
+      connect(mapStateToProps,mapDispatchToProps)(Dialogs) dialogsi propserum gnalua a anunov props mejin@=2
+      isk f1@ kancheluc stanalua argument avtomat mej@ @ngnuma state@ erku hat funcia enq sarqum arajin mej danninerna erkrodi mej callbacker@ mapDispatchToProps@ mej@ vorpes argument stanalu a dispatch@
+      ///////////////////////////////////////////////////////////////////
+      das46
+      de menq gitenq vor erb object es haytararum let a = {name:k,
+      obj1:{name:l,age:5}}
+      a-n stex uxaki hasceya depi et object@ aysinqn ete es senc anem let b = a
+      b-n el kdarna hasce depi et object@ aysinqn ete grem b.name = hhh eti kpoxvi a- mejel ete tenc chenq uzum anenq karanq senc anen let b = {...a} spread operatorna bayc es copian poverxnostnia aysinqn ete senc em anum objecti meji menak primitiv danninerna copy linum isk a-i meji objectner@ eli ssilkova mnum ete menq uzum enq lriv arandzin copy anel petqa anel senc
+      poverxnostni arecinq hima kanenq senc b.obj1 = {...a.obj1} senc irar het kap chunen nuyn@ verabervuma massivnerin
+     //////////////////////////////////////////////////////////////////////
+     das47
+     determirinovannost aysinqn danni es uxarkum return@ petqa durs galuc urish lini maqur funcianer en reducerner@ funcional componentner@ functian ira meji ekac danniner@ iravunq chuni poxi copy a anum copu arac@ poxuma eta return anum menq en vaxt amen poxeluc sax dom@ taza einq nkarum isk connect-ov erb vor kpcnum enq inq@ ira sepakan subscribe-i dzev@ uni vor ete asenq te tan@ anmex erexeq@ qnac    vor@ ete mypost-um mi ban poxvec menak mypost-na taza nkarum amen angam erb state-um popoxutyuna linum ashxatuma connectin poxancvac mapStateToProps functian u stanum en nor object u hamematvum en hni het ete ban chi poxvel chi nkarum taza nayi hima stex mer problem@ ena orinak my posti mej ka posts masiv@ connect-i et funcian ashxatuma hamematvuma qani vor ssilkeq@ hni het nuynna ira tvuma te havasara eti u taza chi nkarum dom@ menq arka objectner@ iravunq chunenq poxenq dra hamar petqa copy anenq hima eti kanenq profilePageReducer-um sarqum ebq state-i copy amen casi- hamar arandzin ushadir et pah@ aveli lav dzevov karas copy anes bayc et heto myus dasin vobshem stex lriv galisa nran vor sax dom@ noric pererisovka chlinelu hamar copy enq anum objectner@ 
+     ushadir exi nran vor masiv@ copy arecir taza bayc masivi meji hin objectner@ eli mnacel en nuyn HIN OBJECTNER@
+
+     ////////////////////////////////////////////////////////////////////
+     das48 
+     esiminch charecinq push@ urish dzev enq grel miqich el kodn enq qchacrel refactoring arecinq u stateCopy popoxakanner@ hanecinq prost@ aranc anun object return arecinq
+     ///////////////////////////////
+     das49
+     sarqeciqn users reducer@ meji bard logikayov
+     ////////////////////////////////////////////////////////////////////////
+     das50 
+     REST API
+     application programm interface interface orinak ena orinak avotyi ruyl@ pedalner@ interface a hamarvum enc orinakov vor haskanas orinak reacti interface-i tetev orinak importner@ orinak brauseri meji knopkeq@ orinak document.getElementByID interface a orinak objectnernel unen interfacer iranc meji zavodskoy funcianer@ ka cragravorman server vor@ kara grac lini node.js-ov apachov NGINX-ov u nman banerov amen server uni endpointner urish dzevov asac url hascener endpointnernernel unen get/post http codern en 404 not found 5xx (aysinqn 500ner@)- server error 3xx-redirect 2xx-OK esi server API- a ka nayev REST API senc karas mi endpointin uxarkes https://orinak.com/api/users - u senc -get/post/put/delete menq kogtagorcenq axios gradaran@
+     grelu enq senc 
+     axios.get('https://orinak.com/users') ashxatacnuma heta talis mez danniner
+     et danniner stexa .then((data)=>data) (datan - a )
+     ///////////////////////////////////////////////////////////////////////////
+     das51
+     Users API zapros enq anelu userneri cucak@ server-ic  container component@ zaprosa anelu install enq anum axios@ arecinq zapros@ theni mej data vor graca et datan ovject a galu mej@ mer requesti masin liq@ iformaciayov mez petqa ete datayi meji data aysinq data.data.items etia ekel mez serveric
+     ///////////////////////////////////////////////////////////////////////////
+     das52
+     SIDE EFFECTS 
+     menq  presentacion component- mej zapros uxakecinq server tenc chi kareli anel presentacion funcian petqa presentacia ami menak henc uxix dzevov dom chpoxi dispatch-ov poxi presentacion component@ petqa lini maqur funcia
+    /////////////////////////////////////////////////////////////////////////////
+    das53 
+    Class component
+    sksenq funcional componentic eti functia a aysinqn ete eti functia a uremn petqa iran kanchel inq@ stanuma props het a talis jsx classner@ petq en vorpeszi sarqen odnotipni objectner orinak eng grum classi
+    class Man {
+      constructor(name,age){
+        this.name = name
+        this.age = age
+      }
+      render(){
+        return ()
+        <div>
+        {this.name},{this.age}
+        </div>
+      }
+    }
+    class@ funcia a 
+sarqum enq sranic nor object
+let man1 = new Man('Dima',31)
+stacvec senc man1 = {name:"Dima",age:31} u uni render metod
+karanq ogtagorcenq et metod@
+orinak man1.render() het kta esi
+bayc de react mej classi constructor-in karanq poxancenq props object Reacti mej
+classic object sarqeluc petq chi grenq asen new Man karanq grenq <Man name='samurai'/> react@ ksarqi eti u render@ avtomat kani bayc react mej component@ petqa extend ani React.Component@ vor unena ira bolor metodner@ menq classneri mej metodner@ aveli lava senc anenq orinak Onclick = () =>{} voch te senc Onclick ()=>{} araji depqum bindi het xndir petqa vor chunenanq amen class@ petqa unena render metod@
+//////////////////////////////////////////////////////////////////////////////////
+das54 
+componenti zhiznenni ciklner React component@ vor extend a anum mer componentner@ uni ira mej@ liq@ metodner orinak componentDidMount() componentDidUpadte() componentDidMount linuma en vaxt erb vor component@ render a exel razmetken haytnveka ejum karanq dra mej mer logikan grenq eta zhiznenni cikl@ cnvec ashxatec componentDidMount@ ka componentUnMount es tipi voncvor etel en routeri vaxt orinak hanec drec urish ban ashxatec componentWillUnmount u vabshe chishta lriv side EFFECTS ner@ anel componentDidMount-um componentDidUpadte -um componentDidMount@ linuma mek angam isk componentDidUpadte amen angam poxelis isk component@ jnjeluc aysinqn mi componenti tex@ erb vor petqa nkarvi urih component
+//////////////////////////////////////////////////////////////////////////////////
+das55
+pagination
+server@ mez danniner@ talisa porcianerov serverum ka baza danniner orinak graca SQL kam mongo DB-ov xar@ menq server uxarkum enq orinak http get: 'api/users?pageNumber=2' talisa mez erkrod ej@ menak karoxa asenq server defaultov draca
+vor amen agam page-um ta 5 hogu anun bayc menq karanq eti poxenq zapros@ poxelov orinak senc'api/users?page=1&pageSize=3 kara lini xare pageSize- tex@ kara lini limit, take documentaciayi mej klini grac serveri isk knopkeq@ vonc cuyc tanq menq
+dra hamar petqa sax informaciain imananq u bajanecinq qani hat vor uzum enq ej unenanq orinak mer projecti zapros-um grecinq senc "https://social-network.samuraijs.com/api/1.0/users?page=4&count=2" het ekav 4rd ej@ u ejum 2 hogi @ndamen@ vabshe imaci vor render@ otrisovka chi anunm inq@ prost@ jsx razmetka a het talis eji chapnel hima grum enq state-um heto total coutn@ userneri kbajanenq eji chapin u khaskananq qani eja petq grel nayi es sran hetaqrqir operator a
+this.props.currentPage===e && s.selectedPage asuma ete esi havasara e in uremn dir  s.selectedPage lav hima sax arecinq stex nenc enq anum vor eji hamari vra sxmeluc zapros@ poxvi taza functia enq sarqum Onclick-i vaxt eti ashxatuma mej@ grum enq zapros@ bayc vor senc grenq zapros@ functian kashxati bayc zapros@ mez hin statena talu karanq argumentic vercnenq popoxakan@ u senc dnenq
+onPageChanged = (pageNumber)=>{
+    this.props.setCurrentPage(pageNumber);
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+      )
+      .then((response) => {
+        return this.props.setUsers(response.data.items), console.log(response);
+      });
+    console.log(this.props);
+  }
+  arecinq pagination@ shat vori das er kara videon noric nayes
+  ////////////////////////////////////////////////////////////////////////////////////
+  das56 
+  eli componenti masin 
+  
 *******************************************************************
 nayi noric Provideri masin u contexti masin u reducerner@ karevor u dispatch@ 
 das64(SHAT USHADIR NAYEL MASIVI METODNEROV ESI ESIMINCHER AREC some metod@ ushadir )
@@ -940,3 +1345,13 @@ test('New Post Should Be Added', () => {
  expect(newState.posts.length).toBe(4)
   
 });
+////////////////////////////////////////////////////////////
+das90 redux-ducks
+erb vor menq action enq poxancum storein inq@ eti qcuma sax reducernerov saxi reducerner@ ashxatum en actioni anunner@ petqa misht tarbevi hankarc nuyn@ chlini teche 2 hat reducer kashxati miangamic redux-ducks@ asuma vor petqa amen action-i dem gren ira unikal dzevov orinak "social-network/SET_USER_DATA"
+ha mekel asynv await-i masin karda miqich 
+
+***********************************************
+/////////////////////////////////////////////////
+stex follow unfollow functian nayi ashxatuma bayc button@ chi poxvum tes ete karas dzes ete che tox hin dzevov refactor mi ara nayi anpayman destrukturizacia-n
+*************************************************
+//////////////////////////////////////////////////

@@ -1,21 +1,18 @@
 import React from "react";
 import Preloader from "../../Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
-import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWihtHooks from "./ProfileStatusWithHooks";
+import userPhoto from '../../../assets/images/user.jpg'
 const ProfileInfo = (props) => {
   if(!props.profile){
     return <Preloader/>
   }
   return (
     <div>
-      {/* <img
-        className={s.image}
-        src="https://www.wpexplorer.com/wp-content/uploads/wordpress-image-optimization-guide.jpg"
-      /> */}
       
       <div>
-          <img src={props.profile.photos.large} alt=""/>
+
+          <img src={props.profile.photos.large || userPhoto} />
         </div>
         <div>
         <ProfileStatusWihtHooks status={props.status} updateStatus = {props.updateStatus}/>
@@ -24,7 +21,7 @@ const ProfileInfo = (props) => {
     <ul>
   <li>About Me: {props.profile.aboutMe}</li>
   <li>Name: {props.profile.fullName}</li>
-  <li>Working: {props.profile.lookingForAJob ? `ashxat@m em`:`chem ashxat@M`}</li>
+  <li>Working: {props.profile.lookingForAJob ? `работаю`:`не работаю`}</li>
       <li>sdsd</li>
       <li>sdsdsd</li>
     </ul>
@@ -34,4 +31,3 @@ const ProfileInfo = (props) => {
 };
 
 export default ProfileInfo;
-{/* <ProfileStatus/> */}
