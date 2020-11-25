@@ -1355,3 +1355,6 @@ ha mekel asynv await-i masin karda miqich
 stex follow unfollow functian nayi ashxatuma bayc button@ chi poxvum tes ete karas dzes ete che tox hin dzevov refactor mi ara nayi anpayman destrukturizacia-n
 *************************************************
 //////////////////////////////////////////////////
+91
+chrome extencions 
+anpayman amen projectic araj nayi ete chka ustanovka ara dranq chromic Redux DevTools u React Developer Tools u redux store-ic petqa mi qani nastroyka tas vor Redux DevTools@ ashxati eti ira ikonki vra ksxmes kbaci githubi ej@ graca dzev@ 
