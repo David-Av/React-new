@@ -1362,3 +1362,5 @@ anpayman amen projectic araj nayi ete chka ustanovka ara dranq chromic Redux Dev
 92 APP-in store bana petqa menq index.js um BrowserRouter-i mej enq grum APP-n dra hamar reacti default test@ chi ancnum
 hima anum enq componentneri tester kan frameworker testeri hamar npm i react-test-renderer@stex grum es qo reacti versian --save-dev esi voncor aranc brauseri tenc fake dzevov rendera anum component@ vor tenc testov stugenq karas mtnes sra documentaciayi ej@ kardas liq@ baner ka testeri dzever JEST documentaciayi mej sax ka grac karas elementneri het vzayimodeystvovat anes cherez testeri ka nayev wallaby cragir@
 eti shat lavna vor usumnasires 
+////////////////////////
+93
