@@ -1,8 +1,7 @@
 import React from "react";
-import s from "./Users.module.css";
-import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
-import Paginator from '../common/Pagination/Paginator'
+import userPhoto from "../../assets/images/user.jpg";
+import s from "./Users.module.css";
 
 let User = ({user,followingInProgres,unFollow,follow}) => {
   let u = user
@@ -15,19 +14,21 @@ let User = ({user,followingInProgres,unFollow,follow}) => {
               <img
                 src={u.photos.small != null ? u.photos.small : userPhoto}
                 className={s.photo}
+                alt = ""
               />
               </NavLink>
             </div>
             <div>
               {u.followed ? (  
-                <button disabled = {followingInProgres.some(id=>id==u.id)} onClick={() =>{
+                <button disabled = {followingInProgres
+                  .some(id=>id===u.id)} onClick={() =>{
                   unFollow(u.id)
                    }}>
 
                   Unfollow
                 </button>
               ) : (
-                <button disabled = {followingInProgres.some(id=>id==u.id)} onClick={() => {
+                <button disabled = {followingInProgres.some(id=>id===u.id)} onClick={() => {
                   follow(u.id)
                   }}>
                   follow

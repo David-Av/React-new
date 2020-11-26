@@ -1,5 +1,3 @@
-import { stopSubmit } from "redux-form";
-import { authAPI, usersApi } from "../API/api";
 import { me } from "./auth-reducer";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';

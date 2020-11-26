@@ -1,7 +1,7 @@
 import {
     usersApi
 } from "../API/api";
-import { updateObjectInArray } from "../utils/objectHelpers";
+// !!! import { updateObjectInArray } from "../utils/objectHelpers"; chi stacvel refactoring@
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -39,7 +39,7 @@ const usersReducer = (state = initialState, action) => {
             case UNFOLLOW:
                 return {
                     ...state,
-                    // users: updateObjectInArray(state.users,action.userId,"id",{followed:false})
+                    //!!! users: updateObjectInArray(state.users,action.userId,"id",{followed:false})
                     users: state.users.map(u => {
                         if (u.id === action.userId) {
                             return {

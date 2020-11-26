@@ -1,8 +1,8 @@
 import React from "react";
-import s from "./Users.module.css";
-import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
-import Paginator from '../common/Pagination/Paginator'
+import userPhoto from "../../assets/images/user.jpg";
+import Paginator from '../common/Pagination/Paginator';
+import s from "./Users.module.css";
 
 let Users = (props) => {
     // let pagesCount = Math.ceil(

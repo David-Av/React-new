@@ -1,8 +1,6 @@
 import React from "react";
 import s from "../../Users/Users.module.css";
-import sp from "./Paginator.module.css"
-import userPhoto from "../../../assets/images/user.jpg"
-import { NavLink } from "react-router-dom";
+
 
 
 let Paginator = (props) => {

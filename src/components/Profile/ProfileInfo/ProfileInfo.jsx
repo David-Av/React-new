@@ -1,6 +1,6 @@
 import React from "react";
 import Preloader from "../../Preloader/Preloader";
-import s from "./ProfileInfo.module.css";
+//! import s from "./ProfileInfo.module.css";
 import ProfileStatusWihtHooks from "./ProfileStatusWithHooks";
 import userPhoto from '../../../assets/images/user.jpg'
 const ProfileInfo = (props) => {
@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
       
       <div>
 
-          <img src={props.profile.photos.large || userPhoto} />
+          <img src={props.profile.photos.large || userPhoto} alt="" />
         </div>
         <div>
         <ProfileStatusWihtHooks status={props.status} updateStatus = {props.updateStatus}/>

@@ -1,11 +1,8 @@
-import * as axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { compose } from "redux";
-import { usersApi } from "../../API/api";
-import { getProfile, getStatus,  setUserProfile, updateStatus } from "../../Redux/profile_reducer";
-import { withAuthRedirect } from "../Hoc/withAuthRedirect";
+import { getProfile, getStatus, setUserProfile, updateStatus } from "../../Redux/profile_reducer";
 import Profile from "./Profile";
 
 class ProfileContiner extends React.Component {

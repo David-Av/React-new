@@ -2,8 +2,7 @@ import {
   stopSubmit
 } from "redux-form";
 import {
-  authAPI,
-  usersApi
+  authAPI
 } from "../API/api";
 
 const SET_USER_DATA = 'social-network/auth/SET_USER_DATA';
@@ -15,7 +14,7 @@ let initialState = {
   login: null,
   isAuth: false
 
-  //  isFetching:false
+  // ** isFetching:false
 
 };
 

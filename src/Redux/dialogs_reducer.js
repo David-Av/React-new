@@ -1,5 +1,4 @@
 const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_DIALOG_TEXT = "UPDATE-DIALOG-TEXT";
 export const addMessageActionCreator = (newMessage) => ({ type: ADD_MESSAGE,newMessage });
 
 let initialState = {
