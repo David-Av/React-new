@@ -4,7 +4,6 @@ import s from "../../Users/Users.module.css";
 
 let Paginator = (props) => {
   let portionSize = 20
- debugger
     let pagesCount = Math.ceil(
         props.totalUsersCount / props.pageSize
       );

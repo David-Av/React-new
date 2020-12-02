@@ -1364,3 +1364,18 @@ hima anum enq componentneri tester kan frameworker testeri hamar npm i react-tes
 eti shat lavna vor usumnasires 
 ////////////////////////
 93
+react lazy loading
+vor componentner@ amen angam mi angamic chkargavorven karanq 
+lazy loading anenq grelov senc sranic 
+import DialogsContainer from "./components/Dialogs/Dialogs_container";
+darav senc 
+const DialogsContainer =  React.lazy(() => import("./components/Dialogs/Dialogs_container"))
+u route @ poxenq sarqenq senc 
+<Route path="/Dialogs" render={() => 
+             <Suspense fallback = {<div>Loading...</div>}>
+            <DialogsContainer />
+            </Suspense>
+            
+          } />
+          Suspense avelacnenq 
+          hima ete et eji vra chenq et component@ zagruzka exac chi linum esi demic sayti bacuma aragacnuma heto dandaxacnum et componenti bacel@ bayc ete shat shat en mer componentner@ esi shat lav dzeva optimization anelu 
