@@ -1382,3 +1382,7 @@ u route @ poxenq sarqenq senc
 ///////////////////////////////////////////////////////////
 das95 vsyo
 havaqum enq sayt@
+vorpeszi githubi pages um ashxati mi qani ban petqa anenq arajin@ package.json-i mej 
+grenq "homepage: u eji anun@" install anenq  npm i gh-pages--save-dev
+package.jsoni mej scripts vor graca avelacnenq "predeploy": "npm run build",
+    "deploy": "gh-pages -d build" es 2 toxer@  

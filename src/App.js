@@ -17,11 +17,11 @@ const UsersContainer =  React.lazy(() => import("./components/Users/Users_Contai
 
 
 class App extends React.Component {
-  componentDidMount() {
+  // componentDidMount() {
 
-    this.props.initializeApp()
+  //   this.props.initializeApp()
 
-  }
+  // }
   render() {
     if (!this.props.initialized) {
 
