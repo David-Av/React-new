@@ -1,0 +1,1 @@
+{"version":3,"sources":["Post.module.css"],"names":[],"mappings":"AAAA,kBACI,aACJ,CACA,mBACI,UAAW,CAEX,kBACJ","file":"3.97abca5b.chunk.css","sourcesContent":[".item{\r\n    color: rgb(247, 3, 3);\r\n}\r\n.image{\r\n    width: 80px;\r\n    /* height: 80px; */\r\n    border-radius: 30px;\r\n}"]}
